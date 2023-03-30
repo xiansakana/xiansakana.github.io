@@ -60,7 +60,7 @@
     box-shadow: 0 0 5px var(--lyx-theme);
     font-family: "Font Awesome 6 Free";
     text-align: center;
-    color: white;
+    color: rgb(255, 126, 238);
     line-height: 34px;
     /*如果有溢出或者垂直不居中的现象微调一下这个参数*/
     font-size: 18px;
