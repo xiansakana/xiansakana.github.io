@@ -1,0 +1,92 @@
+/* 所有背景（包括首页卡片、文章页、页面页等） */
+
+#recent-posts>.recent-post-item,
+.layout>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    /* 以下代表白色透明度为0.3 */
+    background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] #recent-posts>.recent-post-item,
+.layout>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    /* 以下代表白色透明度为0.3 */
+    background: rgba(1, 1, 1, 0.8);
+}
+
+#web_bg {
+    /* 背景图像的地址（url括号里）  */
+    background: url("/img/春物.png");
+    /* 背景图像不重复 */
+    background-repeat: no-repeat;
+    /* 背景图像大小 */
+    background-size: cover;
+}
+
+.layout>#post {
+    background: rgba(255, 255, 255, .8);
+}
+
+[data-theme=dark].layout>#post {
+    background: rgba(1, 1, 1, .8);
+}
+
+#aside-content>.sticky_layout>.card-widget {
+    background: rgba(255, 255, 255, .8);
+}
+
+
+/*侧边栏页面*/
+
+#aside-content>.card-widget {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme=dark] #aside-content>.card-widget {
+    background: rgba(22, 18, 18, 0.8);
+}
+
+[data-theme=dark] #aside-content>.sticky_layout>.card-widget {
+    background: rgba(25, 25, 25, .8);
+}
+
+[data-theme=dark] .layout>#post {
+    background: rgba(25, 25, 25, .8);
+}
+
+
+/* 页脚透明 */
+
+#footer {
+    background: transparent!important;
+    opacity: 0.5;
+}
+
+
+/* 头图透明 */
+
+#page-header {
+    background: transparent!important;
+}
+
+
+/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
+
+#page-header.post-bg:before {
+    background-color: transparent!important;
+}
+
+
+/*夜间模式伪类遮罩层透明*/
+
+[data-theme="dark"] #footer::before {
+    background: transparent!important;
+}
+
+[data-theme="dark"] #page-header::before {
+    background: transparent!important;
+}
