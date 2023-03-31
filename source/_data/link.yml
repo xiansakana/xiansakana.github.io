@@ -1,0 +1,19 @@
+- class_name: 本站
+  class_desc: 交换友链可在下方评论，或者微信/QQ联系我
+  link_list:
+    - name: 海拥
+      link: https://haiyong.site
+      avatar: /img/头像.jpg
+      descr: 阿巴阿巴
+
+- class_name: 友情链接
+  class_desc: 那些人，那些事
+  link_list:
+    - name: 三笠ぃ
+      link: https://luciferlpc.top/
+      avatar: https://luciferlpc.top/img/avatar.jpg
+      descr: 好好吃饭🍣 好好睡觉💤 敲敲代码
+    - name: iMaeGoo’s Blog
+      link: https://www.imaegoo.com
+      avatar: https://www.imaegoo.com/images/avatar.jpg
+      descr: 虹墨空间站
