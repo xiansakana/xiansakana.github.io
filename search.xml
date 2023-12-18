@@ -837,22 +837,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/book.css"/>
-      <url>/css/book.css</url>
+      <title>相册</title>
+      <link href="/album/index.html"/>
+      <url>/album/index.html</url>
       
-        <content type="html"><![CDATA[div.info {  display: flex;  flex-wrap: wrap;  padding: 1rem;}div.info div.image {  flex: 1 1 200px;  display: flex;  align-items: center;  margin-top: 2rem;}div.info div.image img {  width: 50%;}div.info div.info-card {  flex: 3 1 500px;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/imgloaded.css"/>
-      <url>/css/imgloaded.css</url>
-      
-        <content type="html"><![CDATA[/* 首页头图加载 */.pl-container {    width: 100%;    height: 100%;    position: relative;    overflow: hidden;    will-change: transform;    /* 添加性能优化 */    animation: blur-to-clear 2s cubic-bezier(.62, .21, .25, 1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62, .21, .25, 1) 0s 1 both;  }    .pl-img {    width: 100%;    height: 100%;    position: absolute;    background-position: center;    background-size: cover;    background-repeat: no-repeat;    opacity: 0;    transition: opacity 1s;  }    @keyframes blur-to-clear {    0% {      filter: blur(50px);      opacity: 1;    }      100% {      filter: blur(0);      opacity: 1;    }  }    @keyframes scale {    0% {      transform: scale(1.5) translateZ(0);      opacity: 0;    }      to {      transform: scale(1) translateZ(0);      opacity: 1;    }  }    .pl-visible {    opacity: 1;  }    .pl-blur {    /* 小图锯齿多，增加高斯模糊 */    filter: blur(50px);  }]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -870,77 +859,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/light.css"/>
-      <url>/css/light.css</url>
-      
-        <content type="html"><![CDATA[/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {  text-shadow: 0 0 2px var(--theme-color) !important;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>相册</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/welcome.css"/>
-      <url>/css/welcome.css</url>
-      
-        <content type="html"><![CDATA[#welcome-info {    overflow: hidden;    border-radius: 14px;    --kouseki-welcome-color: #49B1F5;    --kouseki-ip-color: #49B1F5;    --kouseki-gl-size: 16px!important;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/weibo.css"/>
-      <url>/css/weibo.css</url>
-      
-        <content type="html"><![CDATA[.weibo-new {  background: #ff3852;}.weibo-hot {  background: #ff9406;}.weibo-jyzy {  background: #ffc000;}.weibo-recommend {  background: #00b7ee;}.weibo-adrecommend {  background: #febd22;}.weibo-friend {  background: #8fc21e;}.weibo-boom {  background: #bd0000;}.weibo-topic {  background: #ff6f49;}.weibo-topic-ad {  background: #4dadff;}.weibo-boil {  background: #f86400;}#weibo .item-content {  text-align: center;}#weibo-container {  width: 100%;  height: 140px;  font-size: 95%;  overflow-y: auto;  -ms-overflow-style: none;  scrollbar-width: none;}.weibo-list-item {  display: flex;  flex-direction: row;  justify-content: space-between;  flex-wrap: nowrap;}.weibo-title {  white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  margin-right: auto;}.weibo-num {  float: right;}.weibo-hotness {  display: inline-block;  padding: 0 6px;  transform: scale(0.8) translateX(-3px);  color: #fff;  border-radius: 8px;}#weibo-container a {  color: #555;}[data-theme="dark"] #weibo-container a {  color: rgba(255, 255, 255, 0.7);}/* 隐藏滚动条 */#weibo-container::-webkit-scrollbar {  display: none;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>书单</title>
       <link href="/book/index.html"/>
       <url>/book/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" href="/css/book.css"><div class="page">    <div class="info">        <div class="image" title="无职转生～到了异世界就拿出真本事～">            <img src="https://img.xiansakana.xyz/202310180110272.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://wuzhizhuansheng.netlify.app" target="_Blank"> 《无职转生～到了异世界就拿出真本事～》 </a></h2>            <h4>作者：理不尽な孫の手</h4>            <h4>出版时间：2014年1月—2022年11月25日（文库版）</h4>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="刀剑神域">            <img src="https://img.xiansakana.xyz/202310180035884.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://daojianshenyu.netlify.app" target="_Blank"> 《刀剑神域》 </a></h2>            <h4>作者：川原砾</h4>            <h4>出版时间：2009年4月10日—出版中（文库版）</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="关于我转生变成史莱姆这档事">            <img src="https://img.xiansakana.xyz/202310180114365.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://zhuanshengchengweishilaimu.netlify.app" target="_Blank"> 《关于我转生变成史莱姆这档事》 </a></h2>            <h4>作者：伏濑</h4>            <h4>出版时间：2014年5月30日—出版中</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="我的青春恋爱物语果然有问题">            <img src="https://img.xiansakana.xyz/202310180122234.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://chunwu.netlify.app" target="_Blank"> 《我的青春恋爱物语果然有问题》 </a></h2>            <h4>作者：渡航</h4>            <h4>出版时间：2011年3月18日—2021年4月20日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="欢迎来到实力至上主义的教室">            <img src="https://img.xiansakana.xyz/202310180129161.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://shijiao.netlify.app" target="_Blank"> 《欢迎来到实力至上主义的教室》 </a></h2>            <h4>作者：衣笠彰梧</h4>            <h4>出版时间：2015年5月25日—2019年9月25日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/home.css"/>
-      <url>/css/home.css</url>
-      
-        <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>日常相册</title>
-      <link href="/dailyphoto/index.html"/>
-      <url>/dailyphoto/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -958,11 +881,66 @@
     
     
     <entry>
-      <title>朋友圈</title>
-      <link href="/fcircle/index.html"/>
-      <url>/fcircle/index.html</url>
+      <title></title>
+      <link href="/css/book.css"/>
+      <url>/css/book.css</url>
+      
+        <content type="html"><![CDATA[div.info {  display: flex;  flex-wrap: wrap;  padding: 1rem;}div.info div.image {  flex: 1 1 200px;  display: flex;  align-items: center;  margin-top: 2rem;}div.info div.image img {  width: 50%;}div.info div.info-card {  flex: 3 1 500px;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日常相册</title>
+      <link href="/dailyphoto/index.html"/>
+      <url>/dailyphoto/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/imgloaded.css"/>
+      <url>/css/imgloaded.css</url>
+      
+        <content type="html"><![CDATA[/* 首页头图加载 */.pl-container {    width: 100%;    height: 100%;    position: relative;    overflow: hidden;    will-change: transform;    /* 添加性能优化 */    animation: blur-to-clear 2s cubic-bezier(.62, .21, .25, 1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62, .21, .25, 1) 0s 1 both;  }    .pl-img {    width: 100%;    height: 100%;    position: absolute;    background-position: center;    background-size: cover;    background-repeat: no-repeat;    opacity: 0;    transition: opacity 1s;  }    @keyframes blur-to-clear {    0% {      filter: blur(50px);      opacity: 1;    }      100% {      filter: blur(0);      opacity: 1;    }  }    @keyframes scale {    0% {      transform: scale(1.5) translateZ(0);      opacity: 0;    }      to {      transform: scale(1) translateZ(0);      opacity: 1;    }  }    .pl-visible {    opacity: 1;  }    .pl-blur {    /* 小图锯齿多，增加高斯模糊 */    filter: blur(50px);  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/home.css"/>
+      <url>/css/home.css</url>
+      
+        <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/weibo.css"/>
+      <url>/css/weibo.css</url>
+      
+        <content type="html"><![CDATA[.weibo-new {  background: #ff3852;}.weibo-hot {  background: #ff9406;}.weibo-jyzy {  background: #ffc000;}.weibo-recommend {  background: #00b7ee;}.weibo-adrecommend {  background: #febd22;}.weibo-friend {  background: #8fc21e;}.weibo-boom {  background: #bd0000;}.weibo-topic {  background: #ff6f49;}.weibo-topic-ad {  background: #4dadff;}.weibo-boil {  background: #f86400;}#weibo .item-content {  text-align: center;}#weibo-container {  width: 100%;  height: 140px;  font-size: 95%;  overflow-y: auto;  -ms-overflow-style: none;  scrollbar-width: none;}.weibo-list-item {  display: flex;  flex-direction: row;  justify-content: space-between;  flex-wrap: nowrap;}.weibo-title {  white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  margin-right: auto;}.weibo-num {  float: right;}.weibo-hotness {  display: inline-block;  padding: 0 6px;  transform: scale(0.8) translateX(-3px);  color: #fff;  border-radius: 8px;}#weibo-container a {  color: #555;}[data-theme="dark"] #weibo-container a {  color: rgba(255, 255, 255, 0.7);}/* 隐藏滚动条 */#weibo-container::-webkit-scrollbar {  display: none;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/light.css"/>
+      <url>/css/light.css</url>
+      
+        <content type="html"><![CDATA[/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {  text-shadow: 0 0 2px var(--theme-color) !important;}]]></content>
       
     </entry>
     
@@ -980,11 +958,22 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/js/imgloaded.js"/>
+      <url>/js/imgloaded.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[/** * @description 实现medium的渐进加载背景的效果 */class ProgressiveLoad {    constructor(smallSrc, largeSrc) {      this.smallSrc = smallSrc;      this.largeSrc = largeSrc;      this.initTpl();    }      /**     * @description 生成ui模板     */    initTpl() {      this.container = document.createElement('div');      this.smallStage = document.createElement('div');      this.largeStage = document.createElement('div');      this.video = document.createElement('div');      this.smallImg = new Image();      this.largeImg = new Image();      this.container.className = 'pl-container';      this.smallStage.className = 'pl-img pl-blur';      this.largeStage.className = 'pl-img';      this.video.className = 'pl-video';      this.container.appendChild(this.smallStage);      this.container.appendChild(this.largeStage);      this.container.appendChild(this.video);      this.smallImg.onload = this._onSmallLoaded.bind(this);      this.largeImg.onload = this._onLargeLoaded.bind(this);    }      /**     * @description 加载背景     */    progressiveLoad() {      this.smallImg.src = this.smallSrc;      this.largeImg.src = this.largeSrc;    }      /**     * @description 大图加载完成     */    _onLargeLoaded() {      this.largeStage.classList.add('pl-visible');      this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;    }      /**     * @description 小图加载完成     */    _onSmallLoaded() {      this.smallStage.classList.add('pl-visible');      this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;    }  }    const executeLoad = (config, target) => {    const isMobile = window.matchMedia('(max-width: 767px)').matches;    const loader = new ProgressiveLoad(      isMobile ? config.mobileSmallSrc : config.smallSrc,      isMobile ? config.mobileLargeSrc : config.largeSrc    );    // 和背景图颜色保持一致，防止高斯模糊后差异较大    if (target.children[0]) {      target.insertBefore(loader.container, target.children[0]);    }    loader.progressiveLoad();  };    const config = {    smallSrc: 'https://t.mwm.moe/pc', // 小图链接 尽可能配置小于100k的图片    largeSrc: 'https://t.mwm.moe/pc', // 大图链接 最终显示的图片    mobileSmallSrc: 'https://t.mwm.moe/mp', // 手机端小图链接 尽可能配置小于100k的图片    mobileLargeSrc: 'https://t.mwm.moe/mp', // 手机端大图链接 最终显示的图片    enableRoutes: ['/'],  };    function initProgressiveLoad(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      executeLoad(config, target);    }  }    function onPJAXComplete(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      initProgressiveLoad(config);    }  }    document.addEventListener("DOMContentLoaded", function () {    initProgressiveLoad(config);  });    document.addEventListener("pjax:complete", function () {    onPJAXComplete(config);  });  ]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/welcome.css"/>
+      <url>/css/welcome.css</url>
+      
+        <content type="html"><![CDATA[#welcome-info {    overflow: hidden;    border-radius: 14px;    --kouseki-welcome-color: #49B1F5;    --kouseki-ip-color: #49B1F5;    --kouseki-gl-size: 16px!important;  }]]></content>
       
     </entry>
     
@@ -996,28 +985,6 @@
       <url>/essay/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/imgloaded.js"/>
-      <url>/js/imgloaded.js</url>
-      
-        <content type="html"><![CDATA[/** * @description 实现medium的渐进加载背景的效果 */class ProgressiveLoad {    constructor(smallSrc, largeSrc) {      this.smallSrc = smallSrc;      this.largeSrc = largeSrc;      this.initTpl();    }      /**     * @description 生成ui模板     */    initTpl() {      this.container = document.createElement('div');      this.smallStage = document.createElement('div');      this.largeStage = document.createElement('div');      this.video = document.createElement('div');      this.smallImg = new Image();      this.largeImg = new Image();      this.container.className = 'pl-container';      this.smallStage.className = 'pl-img pl-blur';      this.largeStage.className = 'pl-img';      this.video.className = 'pl-video';      this.container.appendChild(this.smallStage);      this.container.appendChild(this.largeStage);      this.container.appendChild(this.video);      this.smallImg.onload = this._onSmallLoaded.bind(this);      this.largeImg.onload = this._onLargeLoaded.bind(this);    }      /**     * @description 加载背景     */    progressiveLoad() {      this.smallImg.src = this.smallSrc;      this.largeImg.src = this.largeSrc;    }      /**     * @description 大图加载完成     */    _onLargeLoaded() {      this.largeStage.classList.add('pl-visible');      this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;    }      /**     * @description 小图加载完成     */    _onSmallLoaded() {      this.smallStage.classList.add('pl-visible');      this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;    }  }    const executeLoad = (config, target) => {    const isMobile = window.matchMedia('(max-width: 767px)').matches;    const loader = new ProgressiveLoad(      isMobile ? config.mobileSmallSrc : config.smallSrc,      isMobile ? config.mobileLargeSrc : config.largeSrc    );    // 和背景图颜色保持一致，防止高斯模糊后差异较大    if (target.children[0]) {      target.insertBefore(loader.container, target.children[0]);    }    loader.progressiveLoad();  };    const config = {    smallSrc: 'https://t.mwm.moe/pc', // 小图链接 尽可能配置小于100k的图片    largeSrc: 'https://t.mwm.moe/pc', // 大图链接 最终显示的图片    mobileSmallSrc: 'https://t.mwm.moe/mp', // 手机端小图链接 尽可能配置小于100k的图片    mobileLargeSrc: 'https://t.mwm.moe/mp', // 手机端大图链接 最终显示的图片    enableRoutes: ['/'],  };    function initProgressiveLoad(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      executeLoad(config, target);    }  }    function onPJAXComplete(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      initProgressiveLoad(config);    }  }    document.addEventListener("DOMContentLoaded", function () {    initProgressiveLoad(config);  });    document.addEventListener("pjax:complete", function () {    onPJAXComplete(config);  });  ]]></content>
       
     </entry>
     
@@ -1046,9 +1013,20 @@
     
     
     <entry>
-      <title>文章封面</title>
-      <link href="/postscover/index.html"/>
-      <url>/postscover/index.html</url>
+      <title>朋友圈</title>
+      <link href="/fcircle/index.html"/>
+      <url>/fcircle/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1068,9 +1046,42 @@
     
     
     <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文章封面</title>
+      <link href="/postscover/index.html"/>
+      <url>/postscover/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>好康的壁纸</title>
+      <link href="/wallpaper/index.html"/>
+      <url>/wallpaper/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1084,17 +1095,6 @@
       <url>/tool/index.html</url>
       
         <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202310180332034.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">成绩计算器</div>  <p>一个可以计算加权平均GPA的网站</p>  <a href='./pages/gradeCalculator/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202311230505641.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">图片网站</div>  <p>一个可以搜索免费图片的网站</p>  <a href='./pages/pictureWebsite/index.html' target="_blank"></a>  </figcaption>  </figure></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>好康的壁纸</title>
-      <link href="/wallpaper/index.html"/>
-      <url>/wallpaper/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
