@@ -279,11 +279,11 @@
     <category term="学习" scheme="https://xiansakana.xyz/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Mongoose" scheme="https://xiansakana.xyz/tags/Mongoose/"/>
-    
     <category term="数据库" scheme="https://xiansakana.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="后端" scheme="https://xiansakana.xyz/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="Mongoose" scheme="https://xiansakana.xyz/tags/Mongoose/"/>
     
   </entry>
   
@@ -307,11 +307,11 @@
     <category term="学习" scheme="https://xiansakana.xyz/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
+    <category term="MongoDB" scheme="https://xiansakana.xyz/tags/MongoDB/"/>
+    
     <category term="数据库" scheme="https://xiansakana.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="后端" scheme="https://xiansakana.xyz/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-    <category term="MongoDB" scheme="https://xiansakana.xyz/tags/MongoDB/"/>
     
   </entry>
   
