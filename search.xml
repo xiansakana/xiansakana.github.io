@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>前后端分离项目云服务器部署</title>
+      <link href="/posts/591b9815.html"/>
+      <url>/posts/591b9815.html</url>
+      
+        <content type="html"><![CDATA[<p>这里前端以 vue，后端以 springboot 为例来进行说明。</p><h2 id="前端配置"><a href="#前端配置" class="headerlink" title="前端配置"></a>前端配置</h2><p>vue 配置后台地址</p><p>/public/config.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;serverUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://localhost:8080&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>main.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="comment">//读取外部配置文件</span></span><br><span class="line">axios.<span class="title function_">get</span>(<span class="string">&quot;/config.json&quot;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">$config</span> = res.<span class="property">data</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> globals = app.<span class="property">config</span>.<span class="property">globalProperties</span>;</span><br></pre></td></tr></table></figure><p>request.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; globals &#125; <span class="keyword">from</span> <span class="string">&quot;@/main&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> serverUrl = globals.<span class="property">$config</span>?.<span class="property">serverUrl</span> || <span class="string">&quot;http://localhost:8080&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> request = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">baseURL</span>: serverUrl,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">30000</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>如果有跨域问题，则可以在 vite.config.js 中引入</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig, loadEnv &#125; <span class="keyword">from</span> <span class="string">&quot;vite&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> serverUrl = globals.<span class="property">$config</span>?.<span class="property">serverUrl</span> || <span class="string">&quot;http://localhost:8080&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (&#123; mode &#125;) =&gt;</span><br><span class="line">  <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">    <span class="attr">server</span>: &#123;</span><br><span class="line">      <span class="attr">proxy</span>: &#123;</span><br><span class="line">        <span class="string">&quot;/api&quot;</span>: &#123;</span><br><span class="line">          <span class="comment">//获取路径中包含了/api的请求</span></span><br><span class="line">          <span class="attr">target</span>: <span class="title function_">loadEnv</span>(mode, process.<span class="title function_">cwd</span>()).<span class="property">VITE_APP_URL</span>, <span class="comment">//后台服务所在的源</span></span><br><span class="line">          <span class="attr">changeOrigin</span>: <span class="literal">true</span>, <span class="comment">//修改源</span></span><br><span class="line">          <span class="attr">rewrite</span>: <span class="function">(<span class="params">path</span>) =&gt;</span> path.<span class="title function_">replace</span>(<span class="regexp">/^\/api/</span>, <span class="string">&quot;&quot;</span>), <span class="comment">//api替换为&#x27;&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure><p>然后在.env.development 和.env.production 中写好环境变量</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># dev.development</span><br><span class="line">VITE_APP_URL=&quot;http://localhost:8080&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># dev.production</span><br><span class="line">VITE_APP_URL=&quot;http://114.55.132.144:8080&quot;</span><br></pre></td></tr></table></figure><p>vue 打包：npm run build</p><h2 id="后端配置"><a href="#后端配置" class="headerlink" title="后端配置"></a>后端配置</h2><p>给服务器安全组添加 8888 端口规则</p><p>这里以阿里云为例</p><p><img src="https://img.xiansakana.xyz/202401270329027.png" alt=""></p><p>安装<a href="https://www.bt.cn/new/download.html">宝塔</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh https://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh ed8484bec</span><br></pre></td></tr></table></figure><p>然后用打开显示的外网 ip 并用账号密码登陆</p><p>本地配置</p><p>springboot 打包：mvn clean package</p><p>Xshell (命令)和 Xftp (上传文件)</p><p>ifconfig 命令可以查看内网 ip，配置 application-prod.yml 的数据库 url</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://172.27.133.111:3306/big_event</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span></span><br><span class="line">  <span class="attr">data:</span></span><br><span class="line">    <span class="attr">redis:</span></span><br><span class="line">      <span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure><p>常用命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看端口占用</span></span><br><span class="line">netstat -nlp | grep 8085</span><br><span class="line"><span class="comment"># 关闭对应PID</span></span><br><span class="line"><span class="built_in">kill</span> -9 372027</span><br><span class="line"><span class="comment"># 查看log</span></span><br><span class="line"><span class="built_in">tail</span> -f server.log</span><br><span class="line"><span class="comment"># 运行jar，nohup 不挂断的运行</span></span><br><span class="line"><span class="built_in">cd</span> /home/big-event</span><br><span class="line"><span class="built_in">nohup</span> java -jar big-event-0.0.1-SNAPSHOT.jar &gt; server.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="comment"># 创建脚本</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;nohup java -jar big-event-0.0.1-SNAPSHOT.jar &gt; server.log 2&gt;&amp;1 &amp;&quot;</span> &gt; start.sh</span><br><span class="line"><span class="comment"># 文件所有者有读、写、执行权限，文件组有读、写、执行权限，其他用户没有权限</span></span><br><span class="line"><span class="built_in">chmod</span> 770  start.sh</span><br><span class="line"><span class="comment"># 运行脚本</span></span><br><span class="line">./start.sh</span><br></pre></td></tr></table></figure><h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>安装 nginx</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装gcc</span></span><br><span class="line">yum install gcc-c++</span><br><span class="line"><span class="comment"># 安装PCRE pcre-devel</span></span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line"><span class="comment"># 安装zlib</span></span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line"><span class="comment"># 安装Open SSL</span></span><br><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure><p>进入 tmp</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp/</span><br><span class="line">wget http://nginx.org/download/nginx-1.24.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.24.0.tar.gz</span><br></pre></td></tr></table></figure><p>解压</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">mkdir</span> nginx</span><br><span class="line"><span class="built_in">cd</span> nginx</span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> -R /tmp/nginx-1.24.0 ./</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> nginx-1.24.0</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译，执行命令，考虑到后续安装ssl证书，添加两个模块，如不需要则直接执行./configure即可</span></span><br><span class="line">./configure --with-http_stub_status_module --with-http_ssl_module</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure><p>进入 nginx</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx-1.24.0/sbin</span><br><span class="line">./nginx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">./nginx -s stop <span class="comment">#停止</span></span><br><span class="line">./nginx -s start <span class="comment">#启动</span></span><br><span class="line">./nginx -s reload <span class="comment">#重启</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>编辑/usr/local/nginx/conf/nginx.conf，使得 root 指向前端文件所在目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> conf</span><br><span class="line">vi nginx.conf</span><br><span class="line"><span class="comment"># &quot;a&quot;进入编辑模式</span></span><br><span class="line"><span class="comment"># &quot;esc&quot;退出编辑模式</span></span><br><span class="line"><span class="comment"># &quot;:wq&quot;保存</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /home/big-event/dist;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure><p>然后</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> sbin/</span><br><span class="line">./nginx -s reload</span><br><span class="line"><span class="comment"># 可能报错</span></span><br><span class="line"><span class="comment"># nginx: [error] open() &quot;/usr/local/nginx/logs/nginx.pid&quot; failed (2: No such file or directory)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 于是</span></span><br><span class="line">/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示端口占用</span></span><br><span class="line"><span class="comment"># nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看端口</span></span><br><span class="line">netstat -ntlp|grep 80</span><br><span class="line"><span class="comment"># tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      152578/nginx: maste</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># kill -9无效</span></span><br><span class="line">fuser -k 80/tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启nginx</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br><span class="line">./nginx</span><br></pre></td></tr></table></figure><p>redis</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/redis-6.0.8/src</span><br><span class="line"><span class="comment"># 关闭</span></span><br><span class="line">redis-cli shutdown</span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">ps -ef|grep redis</span><br><span class="line"><span class="comment"># 端口</span></span><br><span class="line">netstat -ntlp|grep 6379</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">./redis-server /etc/redis.conf</span><br><span class="line"></span><br><span class="line">./redis-server /usr/local/redis-6.0.8/redis.conf</span><br></pre></td></tr></table></figure><p>重启服务器</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/big-event</span><br><span class="line"><span class="comment"># 运行脚本</span></span><br><span class="line">./start.sh</span><br><span class="line"><span class="comment"># 重启nginx</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 后端 </tag>
+            
+            <tag> springBoot </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git常用版本控制指令</title>
       <link href="/posts/23e7f25b.html"/>
       <url>/posts/23e7f25b.html</url>
@@ -101,9 +126,9 @@
       
         <tags>
             
-            <tag> 图床 </tag>
-            
             <tag> Git </tag>
+            
+            <tag> 图床 </tag>
             
         </tags>
       
@@ -466,9 +491,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
             <tag> Ajax </tag>
             
@@ -638,9 +663,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -665,9 +690,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -692,9 +717,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -719,9 +744,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
             <tag> DOM </tag>
             
@@ -748,9 +773,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -775,9 +800,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -802,11 +827,11 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> CSS </tag>
             
             <tag> HTML </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -831,9 +856,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -858,9 +883,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> HTML </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -974,9 +999,97 @@
     
     
     <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<!--<style>  #libCategories .card-wrap:hover .card-info:after {    width: 300%;  }</style><link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/js-heo@1.0.11/3dCard/no3d.css"><div id='libCategories'><div id="lib-cards" class="container"><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/学习/")'><card data-image="https://img.xiansakana.xyz/202309232121154.jpg"><h1 slot="header">学习</h1><p slot="content">学习之路，永无止境。</p></card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/游戏/")'>  <card data-image="https://img.xiansakana.xyz/202309232100891.jpg">    <h1 slot="header">游戏</h1>    <p slot="content">各种游戏记录。</p>  </card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/生活/")'>  <card data-image="https://img.xiansakana.xyz/202309232116463.jpg">    <h1 slot="header">生活</h1>    <p slot="content">和好朋友👬们一起经历的有趣事。</p>  </card></a></div></div><script src='https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js' data-pjax></script><script type="text/javascript" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.7/no3d/no3d.js" data-pjax></script> -->]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/home.css"/>
+      <url>/css/home.css</url>
+      
+        <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/imgloaded.css"/>
+      <url>/css/imgloaded.css</url>
+      
+        <content type="html"><![CDATA[/* 首页头图加载 */.pl-container {    width: 100%;    height: 100%;    position: relative;    overflow: hidden;    will-change: transform;    /* 添加性能优化 */    animation: blur-to-clear 2s cubic-bezier(.62, .21, .25, 1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62, .21, .25, 1) 0s 1 both;  }    .pl-img {    width: 100%;    height: 100%;    position: absolute;    background-position: center;    background-size: cover;    background-repeat: no-repeat;    opacity: 0;    transition: opacity 1s;  }    @keyframes blur-to-clear {    0% {      filter: blur(50px);      opacity: 1;    }      100% {      filter: blur(0);      opacity: 1;    }  }    @keyframes scale {    0% {      transform: scale(1.5) translateZ(0);      opacity: 0;    }      to {      transform: scale(1) translateZ(0);      opacity: 1;    }  }    .pl-visible {    opacity: 1;  }    .pl-blur {    /* 小图锯齿多，增加高斯模糊 */    filter: blur(50px);  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>相册</title>
+      <link href="/album/index.html"/>
+      <url>/album/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/welcome.css"/>
+      <url>/css/welcome.css</url>
+      
+        <content type="html"><![CDATA[#welcome-info {    overflow: hidden;    border-radius: 14px;    --kouseki-welcome-color: #49B1F5;    --kouseki-ip-color: #49B1F5;    --kouseki-gl-size: 16px!important;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/light.css"/>
+      <url>/css/light.css</url>
+      
+        <content type="html"><![CDATA[/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {  text-shadow: 0 0 2px var(--theme-color) !important;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/book.css"/>
+      <url>/css/book.css</url>
+      
+        <content type="html"><![CDATA[div.info {  display: flex;  flex-wrap: wrap;  padding: 1rem;}div.info div.image {  flex: 1 1 200px;  display: flex;  align-items: center;  margin-top: 2rem;}div.info div.image img {  width: 50%;}div.info div.info-card {  flex: 3 1 500px;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>说说</title>
+      <link href="/essay/index.html"/>
+      <url>/essay/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -996,121 +1109,11 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<!--<style>  #libCategories .card-wrap:hover .card-info:after {    width: 300%;  }</style><link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/js-heo@1.0.11/3dCard/no3d.css"><div id='libCategories'><div id="lib-cards" class="container"><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/学习/")'><card data-image="https://img.xiansakana.xyz/202309232121154.jpg"><h1 slot="header">学习</h1><p slot="content">学习之路，永无止境。</p></card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/游戏/")'>  <card data-image="https://img.xiansakana.xyz/202309232100891.jpg">    <h1 slot="header">游戏</h1>    <p slot="content">各种游戏记录。</p>  </card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/生活/")'>  <card data-image="https://img.xiansakana.xyz/202309232116463.jpg">    <h1 slot="header">生活</h1>    <p slot="content">和好朋友👬们一起经历的有趣事。</p>  </card></a></div></div><script src='https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js' data-pjax></script><script type="text/javascript" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.7/no3d/no3d.js" data-pjax></script> -->]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>说说</title>
-      <link href="/essay/index.html"/>
-      <url>/essay/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>日常相册</title>
-      <link href="/dailyphoto/index.html"/>
-      <url>/dailyphoto/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>相册</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/book.css"/>
-      <url>/css/book.css</url>
-      
-        <content type="html"><![CDATA[div.info {  display: flex;  flex-wrap: wrap;  padding: 1rem;}div.info div.image {  flex: 1 1 200px;  display: flex;  align-items: center;  margin-top: 2rem;}div.info div.image img {  width: 50%;}div.info div.info-card {  flex: 3 1 500px;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/home.css"/>
-      <url>/css/home.css</url>
-      
-        <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/imgloaded.css"/>
-      <url>/css/imgloaded.css</url>
-      
-        <content type="html"><![CDATA[/* 首页头图加载 */.pl-container {    width: 100%;    height: 100%;    position: relative;    overflow: hidden;    will-change: transform;    /* 添加性能优化 */    animation: blur-to-clear 2s cubic-bezier(.62, .21, .25, 1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62, .21, .25, 1) 0s 1 both;  }    .pl-img {    width: 100%;    height: 100%;    position: absolute;    background-position: center;    background-size: cover;    background-repeat: no-repeat;    opacity: 0;    transition: opacity 1s;  }    @keyframes blur-to-clear {    0% {      filter: blur(50px);      opacity: 1;    }      100% {      filter: blur(0);      opacity: 1;    }  }    @keyframes scale {    0% {      transform: scale(1.5) translateZ(0);      opacity: 0;    }      to {      transform: scale(1) translateZ(0);      opacity: 1;    }  }    .pl-visible {    opacity: 1;  }    .pl-blur {    /* 小图锯齿多，增加高斯模糊 */    filter: blur(50px);  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/light.css"/>
-      <url>/css/light.css</url>
-      
-        <content type="html"><![CDATA[/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {  text-shadow: 0 0 2px var(--theme-color) !important;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/weibo.css"/>
       <url>/css/weibo.css</url>
       
         <content type="html"><![CDATA[.weibo-new {  background: #ff3852;}.weibo-hot {  background: #ff9406;}.weibo-jyzy {  background: #ffc000;}.weibo-recommend {  background: #00b7ee;}.weibo-adrecommend {  background: #febd22;}.weibo-friend {  background: #8fc21e;}.weibo-boom {  background: #bd0000;}.weibo-topic {  background: #ff6f49;}.weibo-topic-ad {  background: #4dadff;}.weibo-boil {  background: #f86400;}#weibo .item-content {  text-align: center;}#weibo-container {  width: 100%;  height: 140px;  font-size: 95%;  overflow-y: auto;  -ms-overflow-style: none;  scrollbar-width: none;}.weibo-list-item {  display: flex;  flex-direction: row;  justify-content: space-between;  flex-wrap: nowrap;}.weibo-title {  white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  margin-right: auto;}.weibo-num {  float: right;}.weibo-hotness {  display: inline-block;  padding: 0 6px;  transform: scale(0.8) translateX(-3px);  color: #fff;  border-radius: 8px;}#weibo-container a {  color: #555;}[data-theme="dark"] #weibo-container a {  color: rgba(255, 255, 255, 0.7);}/* 隐藏滚动条 */#weibo-container::-webkit-scrollbar {  display: none;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/welcome.css"/>
-      <url>/css/welcome.css</url>
-      
-        <content type="html"><![CDATA[#welcome-info {    overflow: hidden;    border-radius: 14px;    --kouseki-welcome-color: #49B1F5;    --kouseki-ip-color: #49B1F5;    --kouseki-gl-size: 16px!important;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>朋友圈</title>
-      <link href="/fcircle/index.html"/>
-      <url>/fcircle/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -1128,11 +1131,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/imgloaded.js"/>
-      <url>/js/imgloaded.js</url>
+      <title>朋友圈</title>
+      <link href="/fcircle/index.html"/>
+      <url>/fcircle/index.html</url>
       
-        <content type="html"><![CDATA[/** * @description 实现medium的渐进加载背景的效果 */class ProgressiveLoad {    constructor(smallSrc, largeSrc) {      this.smallSrc = smallSrc;      this.largeSrc = largeSrc;      this.initTpl();    }      /**     * @description 生成ui模板     */    initTpl() {      this.container = document.createElement('div');      this.smallStage = document.createElement('div');      this.largeStage = document.createElement('div');      this.video = document.createElement('div');      this.smallImg = new Image();      this.largeImg = new Image();      this.container.className = 'pl-container';      this.smallStage.className = 'pl-img pl-blur';      this.largeStage.className = 'pl-img';      this.video.className = 'pl-video';      this.container.appendChild(this.smallStage);      this.container.appendChild(this.largeStage);      this.container.appendChild(this.video);      this.smallImg.onload = this._onSmallLoaded.bind(this);      this.largeImg.onload = this._onLargeLoaded.bind(this);    }      /**     * @description 加载背景     */    progressiveLoad() {      this.smallImg.src = this.smallSrc;      this.largeImg.src = this.largeSrc;    }      /**     * @description 大图加载完成     */    _onLargeLoaded() {      this.largeStage.classList.add('pl-visible');      this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;    }      /**     * @description 小图加载完成     */    _onSmallLoaded() {      this.smallStage.classList.add('pl-visible');      this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;    }  }    const executeLoad = (config, target) => {    const isMobile = window.matchMedia('(max-width: 767px)').matches;    const loader = new ProgressiveLoad(      isMobile ? config.mobileSmallSrc : config.smallSrc,      isMobile ? config.mobileLargeSrc : config.largeSrc    );    // 和背景图颜色保持一致，防止高斯模糊后差异较大    if (target.children[0]) {      target.insertBefore(loader.container, target.children[0]);    }    loader.progressiveLoad();  };    const config = {    smallSrc: 'https://t.mwm.moe/pc', // 小图链接 尽可能配置小于100k的图片    largeSrc: 'https://t.mwm.moe/pc', // 大图链接 最终显示的图片    mobileSmallSrc: 'https://t.mwm.moe/mp', // 手机端小图链接 尽可能配置小于100k的图片    mobileLargeSrc: 'https://t.mwm.moe/mp', // 手机端大图链接 最终显示的图片    enableRoutes: ['/'],  };    function initProgressiveLoad(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      executeLoad(config, target);    }  }    function onPJAXComplete(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      initProgressiveLoad(config);    }  }    document.addEventListener("DOMContentLoaded", function () {    initProgressiveLoad(config);  });    document.addEventListener("pjax:complete", function () {    onPJAXComplete(config);  });  ]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -1161,9 +1164,31 @@
     
     
     <entry>
-      <title>文章封面</title>
-      <link href="/postscover/index.html"/>
-      <url>/postscover/index.html</url>
+      <title></title>
+      <link href="/js/imgloaded.js"/>
+      <url>/js/imgloaded.js</url>
+      
+        <content type="html"><![CDATA[/** * @description 实现medium的渐进加载背景的效果 */class ProgressiveLoad {    constructor(smallSrc, largeSrc) {      this.smallSrc = smallSrc;      this.largeSrc = largeSrc;      this.initTpl();    }      /**     * @description 生成ui模板     */    initTpl() {      this.container = document.createElement('div');      this.smallStage = document.createElement('div');      this.largeStage = document.createElement('div');      this.video = document.createElement('div');      this.smallImg = new Image();      this.largeImg = new Image();      this.container.className = 'pl-container';      this.smallStage.className = 'pl-img pl-blur';      this.largeStage.className = 'pl-img';      this.video.className = 'pl-video';      this.container.appendChild(this.smallStage);      this.container.appendChild(this.largeStage);      this.container.appendChild(this.video);      this.smallImg.onload = this._onSmallLoaded.bind(this);      this.largeImg.onload = this._onLargeLoaded.bind(this);    }      /**     * @description 加载背景     */    progressiveLoad() {      this.smallImg.src = this.smallSrc;      this.largeImg.src = this.largeSrc;    }      /**     * @description 大图加载完成     */    _onLargeLoaded() {      this.largeStage.classList.add('pl-visible');      this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;    }      /**     * @description 小图加载完成     */    _onSmallLoaded() {      this.smallStage.classList.add('pl-visible');      this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;    }  }    const executeLoad = (config, target) => {    const isMobile = window.matchMedia('(max-width: 767px)').matches;    const loader = new ProgressiveLoad(      isMobile ? config.mobileSmallSrc : config.smallSrc,      isMobile ? config.mobileLargeSrc : config.largeSrc    );    // 和背景图颜色保持一致，防止高斯模糊后差异较大    if (target.children[0]) {      target.insertBefore(loader.container, target.children[0]);    }    loader.progressiveLoad();  };    const config = {    smallSrc: 'https://t.mwm.moe/pc', // 小图链接 尽可能配置小于100k的图片    largeSrc: 'https://t.mwm.moe/pc', // 大图链接 最终显示的图片    mobileSmallSrc: 'https://t.mwm.moe/mp', // 手机端小图链接 尽可能配置小于100k的图片    mobileLargeSrc: 'https://t.mwm.moe/mp', // 手机端大图链接 最终显示的图片    enableRoutes: ['/'],  };    function initProgressiveLoad(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      executeLoad(config, target);    }  }    function onPJAXComplete(config) {    const target = document.getElementById('page-header');    if (target && target.classList.contains('full_page')) {      initProgressiveLoad(config);    }  }    document.addEventListener("DOMContentLoaded", function () {    initProgressiveLoad(config);  });    document.addEventListener("pjax:complete", function () {    onPJAXComplete(config);  });  ]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/welcome.js"/>
+      <url>/js/welcome.js</url>
+      
+        <content type="html"><![CDATA[//get请求fetch('https://api.qjqq.cn/api/Local')    .then(response => response.json())    .then(data => {        ipLocation = data;        showWelcome();    })    .catch(error => console.error('Error:', error));    function getDistance(e1, n1, e2, n2) {    const R = 6371;    const { sin, cos, asin, PI, hypot } = Math;    let getPoint = (e, n) => {        e *= PI / 180;        n *= PI / 180;        return { x: cos(n) * cos(e), y: cos(n) * sin(e), z: sin(n) };    };    let a = getPoint(e1, n1);    let b = getPoint(e2, n2);    let c = hypot(a.x - b.x, a.y - b.y, a.z - b.z);    let r = asin(c / 2) * 2 * R;    return Math.round(r);}function showWelcome() {    let dist = getDistance(-73.98264121838827, 40.69397999664894, ipLocation.data.lng, ipLocation.data.lat);  //修改自己的经度（-74.007141）纬度（40.714550）    let pos = ipLocation.data.country;    let ip = ipLocation.ip;    let posdesc;    // 以下的代码需要根据新API返回的结果进行相应的调整    switch (ipLocation.data.country) {        case "日本":            posdesc = "よろしく，一起去看樱花吗";            break;        case "美国":            posdesc = "Let us live in peace!";            break;        case "英国":            posdesc = "想同你一起夜乘伦敦眼";            break;        case "俄罗斯":            posdesc = "干了这瓶伏特加！";            break;        case "法国":            posdesc = "C'est La Vie";            break;        case "德国":            posdesc = "Die Zeit verging im Fluge.";            break;        case "澳大利亚":            posdesc = "一起去大堡礁吧！";            break;        case "加拿大":            posdesc = "拾起一片枫叶赠予你";            break;        case "中国":            pos = ipLocation.data.prov + " " + ipLocation.data.city + " " + ipLocation.data.district;            switch (ipLocation.data.prov) {                case "北京市":                    posdesc = "北——京——欢迎你~~~";                    break;                case "天津市":                    posdesc = "讲段相声吧";                    break;                case "河北省":                    posdesc = "山势巍巍成壁垒，天下雄关铁马金戈由此向，无限江山";                    break;                case "山西省":                    posdesc = "展开坐具长三尺，已占山河五百余";                    break;                case "内蒙古自治区":                    posdesc = "天苍苍，野茫茫，风吹草低见牛羊";                    break;                case "辽宁省":                    posdesc = "我想吃烤鸡架！";                    break;                case "吉林省":                    posdesc = "状元阁就是东北烧烤之王";                    break;                case "黑龙江省":                    posdesc = "很喜欢哈尔滨大剧院";                    break;                case "上海市":                    posdesc = "众所周知，中国只有两个城市";                    break;                case "江苏省":                    switch (ipLocation.data.city) {                        case "南京市":                            posdesc = "这是我挺想去的城市啦";                            break;                        case "苏州市":                            posdesc = "上有天堂，下有苏杭";                            break;                        default:                            posdesc = "散装是必须要散装的";                            break;                    }                    break;                case "浙江省":                    posdesc = "东风渐绿西湖柳，雁已还人未南归";                    break;                case "河南省":                    switch (ipLocation.data.city) {                        case "郑州市":                            posdesc = "豫州之域，天地之中";                            break;                        case "南阳市":                            posdesc = "臣本布衣，躬耕于南阳此南阳非彼南阳！";                            break;                        case "驻马店市":                            posdesc = "峰峰有奇石，石石挟仙气嵖岈山的花很美哦！";                            break;                        case "开封市":                            posdesc = "刚正不阿包青天";                            break;                        case "洛阳市":                            posdesc = "洛阳牡丹甲天下";                            break;                        default:                            posdesc = "可否带我品尝河南烩面啦？";                            break;                    }                    break;                case "安徽省":                    posdesc = "蚌埠住了，芜湖起飞";                    break;                case "福建省":                    posdesc = "井邑白云间，岩城远带山";                    break;                case "江西省":                    posdesc = "落霞与孤鹜齐飞，秋水共长天一色";                    break;                case "山东省":                    posdesc = "遥望齐州九点烟，一泓海水杯中泻";                    break;                case "湖北省":                    switch (ipLocation.data.city) {                        case "黄冈市":                            posdesc = "红安将军县！辈出将才！";                            break;                        default:                            posdesc = "来碗热干面~";                            break;                    }                    break;                case "湖南省":                    posdesc = "74751，长沙斯塔克";                    break;                case "广东省":                    switch (ipLocation.data.city) {                        case "广州市":                            posdesc = "看小蛮腰，喝早茶了嘛~";                            break;                        case "深圳市":                            posdesc = "今天你逛商场了嘛~";                            break;                        case "阳江市":                            posdesc = "阳春合水！博主家乡~ 欢迎来玩~";                            break;                        default:                            posdesc = "来两斤福建人~";                            break;                    }                    break;                case "广西壮族自治区":                    posdesc = "桂林山水甲天下";                    break;                case "海南省":                    posdesc = "朝观日出逐白浪，夕看云起收霞光";                    break;                case "四川省":                    posdesc = "康康川妹子";                    break;                case "贵州省":                    posdesc = "茅台，学生，再塞200";                    break;                case "云南省":                    posdesc = "玉龙飞舞云缠绕，万仞冰川直耸天";                    break;                case "西藏自治区":                    posdesc = "躺在茫茫草原上，仰望蓝天";                    break;                case "陕西省":                    posdesc = "来份臊子面加馍";                    break;                case "甘肃省":                    posdesc = "羌笛何须怨杨柳，春风不度玉门关";                    break;                case "青海省":                    posdesc = "牛肉干和老酸奶都好好吃";                    break;                case "宁夏回族自治区":                    posdesc = "大漠孤烟直，长河落日圆";                    break;                case "新疆维吾尔自治区":                    posdesc = "驼铃古道丝绸路，胡马犹闻唐汉风";                    break;                case "台湾省":                    posdesc = "我在这头，大陆在那头";                    break;                case "香港特别行政区":                    posdesc = "永定贼有残留地鬼嚎，迎击光非岁玉";                    break;                case "澳门特别行政区":                    posdesc = "性感荷官，在线发牌";                    break;                default:                    posdesc = "带我去你的城市逛逛吧！";                    break;            }            break;        default:            posdesc = "带我去你的国家逛逛吧";            break;    }    //根据本地时间切换欢迎语    let timeChange;    let date = new Date();    if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>🌤️ 早上好，一日之计在于晨</span>";    else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>☀️ 中午好，记得午休喔~</span>";    else if (date.getHours() >= 13 && date.getHours() < 17) timeChange = "<span>🕞 下午好，饮茶先啦！</span>";    else if (date.getHours() >= 17 && date.getHours() < 19) timeChange = "<span>🚶‍♂️ 即将下班，记得按时吃饭~</span>";    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>🌙 晚上好，夜生活嗨起来！</span>";    else timeChange = "夜深了，早点休息，少熬夜";    try {        //自定义文本和需要放的位置        document.getElementById("welcome-info").innerHTML =            `欢迎来自 <b><span style="color: var(--kouseki-ip-color);font-size: var(--kouseki-gl-size)">${pos}</span></b> 的小友💖<br>${posdesc}🍂<br>当前位置距博主约 <b><span style="color: var(--kouseki-ip-color)">${dist}</span></b> 公里！<br>您的IP地址为：<b><span style="font-size: 12px;">${ip}</span></b><br>${timeChange} <br>`;    } catch (err) {        console.log("Pjax无法获取元素");    }}// Pjax完成页面切换的事件回调处理function handlePjaxComplete() {    showWelcome();}window.onload = function() {    showWelcome();    // 添加pjax:complete事件监听    document.addEventListener("pjax:complete", handlePjaxComplete);};]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>好康的壁纸</title>
+      <link href="/wallpaper/index.html"/>
+      <url>/wallpaper/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1183,9 +1208,9 @@
     
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>日常相册</title>
+      <link href="/dailyphoto/index.html"/>
+      <url>/dailyphoto/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1194,31 +1219,9 @@
     
     
     <entry>
-      <title>好康的壁纸</title>
-      <link href="/wallpaper/index.html"/>
-      <url>/wallpaper/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/welcome.js"/>
-      <url>/js/welcome.js</url>
-      
-        <content type="html"><![CDATA[//get请求fetch('https://api.qjqq.cn/api/Local')    .then(response => response.json())    .then(data => {        ipLocation = data;        showWelcome();    })    .catch(error => console.error('Error:', error));    function getDistance(e1, n1, e2, n2) {    const R = 6371;    const { sin, cos, asin, PI, hypot } = Math;    let getPoint = (e, n) => {        e *= PI / 180;        n *= PI / 180;        return { x: cos(n) * cos(e), y: cos(n) * sin(e), z: sin(n) };    };    let a = getPoint(e1, n1);    let b = getPoint(e2, n2);    let c = hypot(a.x - b.x, a.y - b.y, a.z - b.z);    let r = asin(c / 2) * 2 * R;    return Math.round(r);}function showWelcome() {    let dist = getDistance(-73.98264121838827, 40.69397999664894, ipLocation.data.lng, ipLocation.data.lat);  //修改自己的经度（-74.007141）纬度（40.714550）    let pos = ipLocation.data.country;    let ip = ipLocation.ip;    let posdesc;    // 以下的代码需要根据新API返回的结果进行相应的调整    switch (ipLocation.data.country) {        case "日本":            posdesc = "よろしく，一起去看樱花吗";            break;        case "美国":            posdesc = "Let us live in peace!";            break;        case "英国":            posdesc = "想同你一起夜乘伦敦眼";            break;        case "俄罗斯":            posdesc = "干了这瓶伏特加！";            break;        case "法国":            posdesc = "C'est La Vie";            break;        case "德国":            posdesc = "Die Zeit verging im Fluge.";            break;        case "澳大利亚":            posdesc = "一起去大堡礁吧！";            break;        case "加拿大":            posdesc = "拾起一片枫叶赠予你";            break;        case "中国":            pos = ipLocation.data.prov + " " + ipLocation.data.city + " " + ipLocation.data.district;            switch (ipLocation.data.prov) {                case "北京市":                    posdesc = "北——京——欢迎你~~~";                    break;                case "天津市":                    posdesc = "讲段相声吧";                    break;                case "河北省":                    posdesc = "山势巍巍成壁垒，天下雄关铁马金戈由此向，无限江山";                    break;                case "山西省":                    posdesc = "展开坐具长三尺，已占山河五百余";                    break;                case "内蒙古自治区":                    posdesc = "天苍苍，野茫茫，风吹草低见牛羊";                    break;                case "辽宁省":                    posdesc = "我想吃烤鸡架！";                    break;                case "吉林省":                    posdesc = "状元阁就是东北烧烤之王";                    break;                case "黑龙江省":                    posdesc = "很喜欢哈尔滨大剧院";                    break;                case "上海市":                    posdesc = "众所周知，中国只有两个城市";                    break;                case "江苏省":                    switch (ipLocation.data.city) {                        case "南京市":                            posdesc = "这是我挺想去的城市啦";                            break;                        case "苏州市":                            posdesc = "上有天堂，下有苏杭";                            break;                        default:                            posdesc = "散装是必须要散装的";                            break;                    }                    break;                case "浙江省":                    posdesc = "东风渐绿西湖柳，雁已还人未南归";                    break;                case "河南省":                    switch (ipLocation.data.city) {                        case "郑州市":                            posdesc = "豫州之域，天地之中";                            break;                        case "南阳市":                            posdesc = "臣本布衣，躬耕于南阳此南阳非彼南阳！";                            break;                        case "驻马店市":                            posdesc = "峰峰有奇石，石石挟仙气嵖岈山的花很美哦！";                            break;                        case "开封市":                            posdesc = "刚正不阿包青天";                            break;                        case "洛阳市":                            posdesc = "洛阳牡丹甲天下";                            break;                        default:                            posdesc = "可否带我品尝河南烩面啦？";                            break;                    }                    break;                case "安徽省":                    posdesc = "蚌埠住了，芜湖起飞";                    break;                case "福建省":                    posdesc = "井邑白云间，岩城远带山";                    break;                case "江西省":                    posdesc = "落霞与孤鹜齐飞，秋水共长天一色";                    break;                case "山东省":                    posdesc = "遥望齐州九点烟，一泓海水杯中泻";                    break;                case "湖北省":                    switch (ipLocation.data.city) {                        case "黄冈市":                            posdesc = "红安将军县！辈出将才！";                            break;                        default:                            posdesc = "来碗热干面~";                            break;                    }                    break;                case "湖南省":                    posdesc = "74751，长沙斯塔克";                    break;                case "广东省":                    switch (ipLocation.data.city) {                        case "广州市":                            posdesc = "看小蛮腰，喝早茶了嘛~";                            break;                        case "深圳市":                            posdesc = "今天你逛商场了嘛~";                            break;                        case "阳江市":                            posdesc = "阳春合水！博主家乡~ 欢迎来玩~";                            break;                        default:                            posdesc = "来两斤福建人~";                            break;                    }                    break;                case "广西壮族自治区":                    posdesc = "桂林山水甲天下";                    break;                case "海南省":                    posdesc = "朝观日出逐白浪，夕看云起收霞光";                    break;                case "四川省":                    posdesc = "康康川妹子";                    break;                case "贵州省":                    posdesc = "茅台，学生，再塞200";                    break;                case "云南省":                    posdesc = "玉龙飞舞云缠绕，万仞冰川直耸天";                    break;                case "西藏自治区":                    posdesc = "躺在茫茫草原上，仰望蓝天";                    break;                case "陕西省":                    posdesc = "来份臊子面加馍";                    break;                case "甘肃省":                    posdesc = "羌笛何须怨杨柳，春风不度玉门关";                    break;                case "青海省":                    posdesc = "牛肉干和老酸奶都好好吃";                    break;                case "宁夏回族自治区":                    posdesc = "大漠孤烟直，长河落日圆";                    break;                case "新疆维吾尔自治区":                    posdesc = "驼铃古道丝绸路，胡马犹闻唐汉风";                    break;                case "台湾省":                    posdesc = "我在这头，大陆在那头";                    break;                case "香港特别行政区":                    posdesc = "永定贼有残留地鬼嚎，迎击光非岁玉";                    break;                case "澳门特别行政区":                    posdesc = "性感荷官，在线发牌";                    break;                default:                    posdesc = "带我去你的城市逛逛吧！";                    break;            }            break;        default:            posdesc = "带我去你的国家逛逛吧";            break;    }    //根据本地时间切换欢迎语    let timeChange;    let date = new Date();    if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>🌤️ 早上好，一日之计在于晨</span>";    else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>☀️ 中午好，记得午休喔~</span>";    else if (date.getHours() >= 13 && date.getHours() < 17) timeChange = "<span>🕞 下午好，饮茶先啦！</span>";    else if (date.getHours() >= 17 && date.getHours() < 19) timeChange = "<span>🚶‍♂️ 即将下班，记得按时吃饭~</span>";    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>🌙 晚上好，夜生活嗨起来！</span>";    else timeChange = "夜深了，早点休息，少熬夜";    try {        //自定义文本和需要放的位置        document.getElementById("welcome-info").innerHTML =            `欢迎来自 <b><span style="color: var(--kouseki-ip-color);font-size: var(--kouseki-gl-size)">${pos}</span></b> 的小友💖<br>${posdesc}🍂<br>当前位置距博主约 <b><span style="color: var(--kouseki-ip-color)">${dist}</span></b> 公里！<br>您的IP地址为：<b><span style="font-size: 12px;">${ip}</span></b><br>${timeChange} <br>`;    } catch (err) {        console.log("Pjax无法获取元素");    }}// Pjax完成页面切换的事件回调处理function handlePjaxComplete() {    showWelcome();}window.onload = function() {    showWelcome();    // 添加pjax:complete事件监听    document.addEventListener("pjax:complete", handlePjaxComplete);};]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>文章封面</title>
+      <link href="/postscover/index.html"/>
+      <url>/postscover/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1232,6 +1235,28 @@
       <url>/project/index.html</url>
       
         <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202310180332034.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">成绩计算器</div>  <p>一个可以计算加权平均GPA的网站</p>  <a href='./pages/gradeCalculator/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202311230505641.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">图片网站</div>  <p>一个可以搜索免费图片的网站</p>  <a href='./pages/pictureWebsite/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202401150059086.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">Nike首页</div>  <p>Nike网站首页复现</p>  <a href='https://xiansakana-nike.netlify.app/' target="_blank"></a>  </figcaption>  </figure></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
