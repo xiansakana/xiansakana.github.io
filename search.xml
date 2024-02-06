@@ -101,9 +101,9 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> 图床 </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
@@ -466,9 +466,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
             <tag> Ajax </tag>
             
@@ -526,9 +526,9 @@
             
             <tag> 前端 </tag>
             
-            <tag> Express.js </tag>
-            
             <tag> EJS </tag>
+            
+            <tag> Express.js </tag>
             
         </tags>
       
@@ -638,9 +638,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -665,9 +665,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -692,9 +692,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -719,9 +719,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
             <tag> DOM </tag>
             
@@ -748,9 +748,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -775,9 +775,9 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -802,11 +802,11 @@
       
         <tags>
             
+            <tag> 前端 </tag>
+            
             <tag> CSS </tag>
             
             <tag> HTML </tag>
-            
-            <tag> 前端 </tag>
             
         </tags>
       
@@ -831,9 +831,9 @@
       
         <tags>
             
-            <tag> CSS </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> CSS </tag>
             
         </tags>
       
@@ -858,9 +858,9 @@
       
         <tags>
             
-            <tag> HTML </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> HTML </tag>
             
         </tags>
       
@@ -974,9 +974,9 @@
     
     
     <entry>
-      <title>相册</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -985,9 +985,53 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>书单</title>
+      <link href="/book/index.html"/>
+      <url>/book/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="/css/book.css"><div class="page">    <div class="info">        <div class="image" title="无职转生～到了异世界就拿出真本事～">            <img src="https://img.xiansakana.xyz/202310180110272.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://wuzhizhuansheng.netlify.app" target="_Blank"> 《无职转生～到了异世界就拿出真本事～》 </a></h2>            <h4>作者：理不尽な孫の手</h4>            <h4>出版时间：2014年1月—2022年11月25日（文库版）</h4>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="刀剑神域">            <img src="https://img.xiansakana.xyz/202310180035884.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://daojianshenyu.netlify.app" target="_Blank"> 《刀剑神域》 </a></h2>            <h4>作者：川原砾</h4>            <h4>出版时间：2009年4月10日—出版中（文库版）</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="关于我转生变成史莱姆这档事">            <img src="https://img.xiansakana.xyz/202310180114365.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://zhuanshengchengweishilaimu.netlify.app" target="_Blank"> 《关于我转生变成史莱姆这档事》 </a></h2>            <h4>作者：伏濑</h4>            <h4>出版时间：2014年5月30日—出版中</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="我的青春恋爱物语果然有问题">            <img src="https://img.xiansakana.xyz/202310180122234.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://chunwu.netlify.app" target="_Blank"> 《我的青春恋爱物语果然有问题》 </a></h2>            <h4>作者：渡航</h4>            <h4>出版时间：2011年3月18日—2021年4月20日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="欢迎来到实力至上主义的教室">            <img src="https://img.xiansakana.xyz/202310180129161.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://shijiao.netlify.app" target="_Blank"> 《欢迎来到实力至上主义的教室》 </a></h2>            <h4>作者：衣笠彰梧</h4>            <h4>出版时间：2015年5月25日—2019年9月25日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<!--<style>  #libCategories .card-wrap:hover .card-info:after {    width: 300%;  }</style><link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/js-heo@1.0.11/3dCard/no3d.css"><div id='libCategories'><div id="lib-cards" class="container"><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/学习/")'><card data-image="https://img.xiansakana.xyz/202309232121154.jpg"><h1 slot="header">学习</h1><p slot="content">学习之路，永无止境。</p></card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/游戏/")'>  <card data-image="https://img.xiansakana.xyz/202309232100891.jpg">    <h1 slot="header">游戏</h1>    <p slot="content">各种游戏记录。</p>  </card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/生活/")'>  <card data-image="https://img.xiansakana.xyz/202309232116463.jpg">    <h1 slot="header">生活</h1>    <p slot="content">和好朋友👬们一起经历的有趣事。</p>  </card></a></div></div><script src='https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js' data-pjax></script><script type="text/javascript" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.7/no3d/no3d.js" data-pjax></script> -->]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>说说</title>
+      <link href="/essay/index.html"/>
+      <url>/essay/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日常相册</title>
+      <link href="/dailyphoto/index.html"/>
+      <url>/dailyphoto/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>相册</title>
+      <link href="/album/index.html"/>
+      <url>/album/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1007,44 +1051,11 @@
     
     
     <entry>
-      <title>日常相册</title>
-      <link href="/dailyphoto/index.html"/>
-      <url>/dailyphoto/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<!--<style>  #libCategories .card-wrap:hover .card-info:after {    width: 300%;  }</style><link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/js-heo@1.0.11/3dCard/no3d.css"><div id='libCategories'><div id="lib-cards" class="container"><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/学习/")'><card data-image="https://img.xiansakana.xyz/202309232121154.jpg"><h1 slot="header">学习</h1><p slot="content">学习之路，永无止境。</p></card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/游戏/")'>  <card data-image="https://img.xiansakana.xyz/202309232100891.jpg">    <h1 slot="header">游戏</h1>    <p slot="content">各种游戏记录。</p>  </card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/生活/")'>  <card data-image="https://img.xiansakana.xyz/202309232116463.jpg">    <h1 slot="header">生活</h1>    <p slot="content">和好朋友👬们一起经历的有趣事。</p>  </card></a></div></div><script src='https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js' data-pjax></script><script type="text/javascript" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.7/no3d/no3d.js" data-pjax></script> -->]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/home.css"/>
       <url>/css/home.css</url>
       
         <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>书单</title>
-      <link href="/book/index.html"/>
-      <url>/book/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" href="/css/book.css"><div class="page">    <div class="info">        <div class="image" title="无职转生～到了异世界就拿出真本事～">            <img src="https://img.xiansakana.xyz/202310180110272.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://wuzhizhuansheng.netlify.app" target="_Blank"> 《无职转生～到了异世界就拿出真本事～》 </a></h2>            <h4>作者：理不尽な孫の手</h4>            <h4>出版时间：2014年1月—2022年11月25日（文库版）</h4>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="刀剑神域">            <img src="https://img.xiansakana.xyz/202310180035884.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://daojianshenyu.netlify.app" target="_Blank"> 《刀剑神域》 </a></h2>            <h4>作者：川原砾</h4>            <h4>出版时间：2009年4月10日—出版中（文库版）</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="关于我转生变成史莱姆这档事">            <img src="https://img.xiansakana.xyz/202310180114365.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://zhuanshengchengweishilaimu.netlify.app" target="_Blank"> 《关于我转生变成史莱姆这档事》 </a></h2>            <h4>作者：伏濑</h4>            <h4>出版时间：2014年5月30日—出版中</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="我的青春恋爱物语果然有问题">            <img src="https://img.xiansakana.xyz/202310180122234.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://chunwu.netlify.app" target="_Blank"> 《我的青春恋爱物语果然有问题》 </a></h2>            <h4>作者：渡航</h4>            <h4>出版时间：2011年3月18日—2021年4月20日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="欢迎来到实力至上主义的教室">            <img src="https://img.xiansakana.xyz/202310180129161.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://shijiao.netlify.app" target="_Blank"> 《欢迎来到实力至上主义的教室》 </a></h2>            <h4>作者：衣笠彰梧</h4>            <h4>出版时间：2015年5月25日—2019年9月25日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div>]]></content>
       
     </entry>
     
@@ -1095,11 +1106,22 @@
     
     
     <entry>
-      <title>说说</title>
-      <link href="/essay/index.html"/>
-      <url>/essay/index.html</url>
+      <title>朋友圈</title>
+      <link href="/fcircle/index.html"/>
+      <url>/fcircle/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>游戏</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202310240353245.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">贪食蛇</div>  <p>经典贪食蛇小游戏</p>  <a href='./pages/greedySnake/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202311061511446.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">打砖块</div>  <p>打砖块小游戏</p>  <a href='./pages/breakoutClone/index.html' target="_blank"></a>  </figcaption>  </figure></div>]]></content>
       
     </entry>
     
@@ -1117,11 +1139,11 @@
     
     
     <entry>
-      <title>朋友圈</title>
-      <link href="/fcircle/index.html"/>
-      <url>/fcircle/index.html</url>
+      <title></title>
+      <link href="/js/light.js"/>
+      <url>/js/light.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = [  "#39c5bb",  "#f14747",  "#f1a247",  "#f1ee47",  "#b347f1",  "#1edbff",  "#ed709b",  "#5636ed",];// 颜色索引var idx = 0;// 切换颜色function changeColor() {  // 仅夜间模式才启用  if (    document.getElementsByTagName("html")[0].getAttribute("data-theme") ==    "dark"  ) {    if (document.getElementById("site-name"))      document.getElementById("site-name").style.textShadow =        arr[idx] + " 0 0 15px";    if (document.getElementById("site-title"))      document.getElementById("site-title").style.textShadow =        arr[idx] + " 0 0 15px";    if (document.getElementById("site-subtitle"))      document.getElementById("site-subtitle").style.textShadow =        arr[idx] + " 0 0 10px";    if (document.getElementById("post-info"))      document.getElementById("post-info").style.textShadow =        arr[idx] + " 0 0 5px";    try {      document.getElementsByClassName("author-info__name")[0].style.textShadow =        arr[idx] + " 0 0 12px";      document.getElementsByClassName(        "author-info__description"      )[0].style.textShadow = arr[idx] + " 0 0 12px";    } catch {}    idx++;    if (idx == 8) {      idx = 0;    }  } else {    // 白天模式恢复默认    if (document.getElementById("site-name"))      document.getElementById("site-name").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    if (document.getElementById("site-title"))      document.getElementById("site-title").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    if (document.getElementById("site-subtitle"))      document.getElementById("site-subtitle").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    if (document.getElementById("post-info"))      document.getElementById("post-info").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    try {      document.getElementsByClassName("author-info__name")[0].style.textShadow =        "";      document.getElementsByClassName(        "author-info__description"      )[0].style.textShadow = "";    } catch {}  }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
       
     </entry>
     
@@ -1139,22 +1161,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/light.js"/>
-      <url>/js/light.js</url>
+      <title>文章封面</title>
+      <link href="/postscover/index.html"/>
+      <url>/postscover/index.html</url>
       
-        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = [  "#39c5bb",  "#f14747",  "#f1a247",  "#f1ee47",  "#b347f1",  "#1edbff",  "#ed709b",  "#5636ed",];// 颜色索引var idx = 0;// 切换颜色function changeColor() {  // 仅夜间模式才启用  if (    document.getElementsByTagName("html")[0].getAttribute("data-theme") ==    "dark"  ) {    if (document.getElementById("site-name"))      document.getElementById("site-name").style.textShadow =        arr[idx] + " 0 0 15px";    if (document.getElementById("site-title"))      document.getElementById("site-title").style.textShadow =        arr[idx] + " 0 0 15px";    if (document.getElementById("site-subtitle"))      document.getElementById("site-subtitle").style.textShadow =        arr[idx] + " 0 0 10px";    if (document.getElementById("post-info"))      document.getElementById("post-info").style.textShadow =        arr[idx] + " 0 0 5px";    try {      document.getElementsByClassName("author-info__name")[0].style.textShadow =        arr[idx] + " 0 0 12px";      document.getElementsByClassName(        "author-info__description"      )[0].style.textShadow = arr[idx] + " 0 0 12px";    } catch {}    idx++;    if (idx == 8) {      idx = 0;    }  } else {    // 白天模式恢复默认    if (document.getElementById("site-name"))      document.getElementById("site-name").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    if (document.getElementById("site-title"))      document.getElementById("site-title").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    if (document.getElementById("site-subtitle"))      document.getElementById("site-subtitle").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    if (document.getElementById("post-info"))      document.getElementById("post-info").style.textShadow =        "#1e1e1ee0 1px 1px 1px";    try {      document.getElementsByClassName("author-info__name")[0].style.textShadow =        "";      document.getElementsByClassName(        "author-info__description"      )[0].style.textShadow = "";    } catch {}  }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>游戏</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202310240353245.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">贪食蛇</div>  <p>经典贪食蛇小游戏</p>  <a href='./pages/greedySnake/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202311061511446.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">打砖块</div>  <p>打砖块小游戏</p>  <a href='./pages/breakoutClone/index.html' target="_blank"></a>  </figcaption>  </figure></div>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -1183,20 +1194,9 @@
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>文章封面</title>
-      <link href="/postscover/index.html"/>
-      <url>/postscover/index.html</url>
+      <title>好康的壁纸</title>
+      <link href="/wallpaper/index.html"/>
+      <url>/wallpaper/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1216,9 +1216,9 @@
     
     
     <entry>
-      <title>好康的壁纸</title>
-      <link href="/wallpaper/index.html"/>
-      <url>/wallpaper/index.html</url>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
