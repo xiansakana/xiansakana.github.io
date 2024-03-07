@@ -278,7 +278,7 @@
       <link href="/posts/3c869818.html"/>
       <url>/posts/3c869818.html</url>
       
-        <content type="html"><![CDATA[<h1 id="创建-Github-新仓库"><a href="#创建-Github-新仓库" class="headerlink" title="创建 Github 新仓库"></a>创建 Github 新仓库</h1><p><img src="https://img.xiansakana.xyz/202401262255535.png" alt=""></p><p>然后根据自己需求设置名称，如果想要公开笔记就选 public，不想公开就选 private。</p><p><img src="https://img.xiansakana.xyz/202401262300632.png" alt=""></p><h1 id="同步仓库到本地"><a href="#同步仓库到本地" class="headerlink" title="同步仓库到本地"></a>同步仓库到本地</h1><p>这里如果熟悉 git 就用 git clone，不熟悉 git 的话就用<a href="https://desktop.github.com/">Github Desktop</a>，也就是 Github 的桌面端。</p><p>下载完成后选择 clone a repository。</p><p><img src="https://img.xiansakana.xyz/202401262301225.png" alt=""></p><p>同步完成后选择刚刚创建的仓库，然后 Local Path 是我们要 clone 的地方，随便选个空的文件夹就好，因为后面要把.git 目录移动到 Obsidian 的仓库里面。</p><p><img src="https://img.xiansakana.xyz/202401262301847.png" alt=""></p><h1 id="合并-Obsidian-仓库和-Git-仓库"><a href="#合并-Obsidian-仓库和-Git-仓库" class="headerlink" title="合并 Obsidian 仓库和 Git 仓库"></a>合并 Obsidian 仓库和 Git 仓库</h1><p>在 clone 后的 Obsidian-Library 的文件夹中可以看到隐藏的.git 文件夹，如果看不到可能是因为没有勾选显示隐藏的项目，选择勾选就好。</p><p><img src="https://img.xiansakana.xyz/202401262301476.png" alt=""></p><p>然后将.git 文件夹移动到 Obsidian 笔记所在的仓库，使得其和.obsidian 文件夹在一起</p><p><img src="https://img.xiansakana.xyz/202401262301045.png" alt=""></p><p>按照我自己的尝试，其实会发现之后装 Obsidian Git 的插件仍然无法链接到仓库,会显示 Git is not ready，最后才发现可能是没有安装 git 的原因，所以还是建议安装一下<a href="https://gitforwindows.org/">Git</a>。</p><p>具体的安装过程可以参考这篇文章：<a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）</a></p><h1 id="安装-Obsidian-Git-插件进行后续的同步"><a href="#安装-Obsidian-Git-插件进行后续的同步" class="headerlink" title="安装 Obsidian Git 插件进行后续的同步"></a>安装 Obsidian Git 插件进行后续的同步</h1><p>打开 Obsidian，在的这个准备好的库中，安装一个名为<a href="https://github.com/denolehov/obsidian-git">Obsidian Git</a>的插件，具体操作如下。</p><p>首先在左下角设置中的第三方插件中关闭安全模式</p><p><img src="https://img.xiansakana.xyz/202401262302769.png" alt=""></p><p>然后浏览社区插件市场并搜索 Obsidian Git 选择安装</p><p><img src="https://img.xiansakana.xyz/202401262302861.png" alt=""></p><p><img src="https://img.xiansakana.xyz/202401262302564.png" alt=""></p><p>注意要打开插件的开关</p><p><img src="https://img.xiansakana.xyz/202401262302414.png" alt=""></p><p>然后在左下角插件的配置中可以设置 backup interval（备份时间间隔）</p><p><img src="https://img.xiansakana.xyz/202401262302323.png" alt=""></p><p>安装完成后应该会自动出现一个 Git Control View 的侧边栏。如果没有，则按下 Ctrl + P 打开命令面板，搜索  <code>Obsidian Git: Open Source Control View</code> ，就可以打开这个面板。</p><p><img src="https://img.xiansakana.xyz/202401262302152.png" alt=""></p><p>有了这个插件，以后的同步操作你都可以在 Obsidian 内部进行了。</p><p>这个插件顶部的按钮对应了 Git 中最常见的几个操作。如果你对 Git 有一定的了解，应该对这些操作不会陌生。</p><ol><li>Backup：备份，提交所有的更改，并且执行推送。</li><li>Commit：确认提交，但不推送。</li><li>Stage all：存储当前的变更。</li><li>Unstage all：取消存储变更。</li><li>Push：推送到远端，可以理解为推送到 Github。</li><li>Pull：从远端拉取到本地，可以理解为从 Github 拉取最新数据到本地。</li><li>Change Layout：改变下方文件的排布方式。</li><li>Refresh：刷新当前的文件变更情况。</li></ol><p>如果你不想了解他们具体是干什么的，只想知道怎么做同步，那其实就两个按键有用。</p><ol><li>Backup，第一个按钮，一次性完成提交并推送到 Github。</li><li>Pull，第六个按钮，从 Github 同步到本地。</li></ol><p>到这一步就完成了所有的配置工作，第一次使用时，点击 Backup 就可以。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="创建-Github-新仓库"><a href="#创建-Github-新仓库" class="headerlink" title="创建 Github 新仓库"></a>创建 Github 新仓库</h1><p><img src="https://img.xiansakana.xyz/202401262255535.png" alt=""></p><p>然后根据自己需求设置名称，如果想要公开笔记就选 public，不想公开就选 private。</p><p><img src="https://img.xiansakana.xyz/202401262300632.png" alt=""></p><h1 id="同步仓库到本地"><a href="#同步仓库到本地" class="headerlink" title="同步仓库到本地"></a>同步仓库到本地</h1><p>这里如果熟悉 git 就用 git clone，不熟悉 git 的话就用<a href="https://desktop.github.com/">Github Desktop</a>，也就是 Github 的桌面端。</p><p>下载完成后选择 clone a repository。</p><p><img src="https://img.xiansakana.xyz/202401262301225.png" alt=""></p><p>同步完成后选择刚刚创建的仓库，然后 Local Path 是我们要 clone 的地方，随便选个空的文件夹就好，因为后面要把.git 目录移动到 Obsidian 的仓库里面。</p><p><img src="https://img.xiansakana.xyz/202401262301847.png" alt=""></p><h1 id="合并-Obsidian-仓库和-Git-仓库"><a href="#合并-Obsidian-仓库和-Git-仓库" class="headerlink" title="合并 Obsidian 仓库和 Git 仓库"></a>合并 Obsidian 仓库和 Git 仓库</h1><p>在 clone 后的 Obsidian-Library 的文件夹中可以看到隐藏的.git 文件夹，如果看不到可能是因为没有勾选显示隐藏的项目，选择勾选就好。</p><p><img src="https://img.xiansakana.xyz/202401262301476.png" alt=""></p><p>然后将.git 文件夹移动到 Obsidian 笔记所在的仓库，使得其和.obsidian 文件夹在一起</p><p><img src="https://img.xiansakana.xyz/202401262301045.png" alt=""></p><p>按照我自己的尝试，其实会发现之后装 Obsidian Git 的插件仍然无法链接到仓库,会显示 Git is not ready，最后才发现可能是没有安装 git 的原因，所以还是建议安装一下<a href="https://gitforwindows.org/">Git</a>。</p><p>具体的安装过程可以参考这篇文章：<a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）</a></p><h1 id="安装-Obsidian-Git-插件进行后续的同步"><a href="#安装-Obsidian-Git-插件进行后续的同步" class="headerlink" title="安装 Obsidian Git 插件进行后续的同步"></a>安装 Obsidian Git 插件进行后续的同步</h1><p>打开 Obsidian，在的这个准备好的库中，安装一个名为<a href="https://github.com/denolehov/obsidian-git">Obsidian Git</a>的插件，具体操作如下。</p><p>首先在左下角设置中的第三方插件中关闭安全模式</p><p><img src="https://img.xiansakana.xyz/202401262302769.png" alt=""></p><p>然后浏览社区插件市场并搜索 Obsidian Git 选择安装</p><p><img src="https://img.xiansakana.xyz/202401262302861.png" alt=""></p><p><img src="https://img.xiansakana.xyz/202401262302564.png" alt=""></p><p>注意要打开插件的开关</p><p><img src="https://img.xiansakana.xyz/202401262302414.png" alt=""></p><p>然后在左下角插件的配置中可以设置 backup interval（备份时间间隔）</p><p><img src="https://img.xiansakana.xyz/202401262302323.png" alt=""></p><p>安装完成后应该会自动出现一个 Git Control View 的侧边栏。如果没有，则按下 Ctrl + P 打开命令面板，搜索  <code>Obsidian Git: Open Source Control View</code> ，就可以打开这个面板。</p><p><img src="https://img.xiansakana.xyz/202401262302152.png" alt=""></p><p>有了这个插件，以后的同步操作你都可以在 Obsidian 内部进行了。</p><p>这个插件顶部的按钮对应了 Git 中最常见的几个操作。如果你对 Git 有一定的了解，应该对这些操作不会陌生。</p><ol><li>Backup：备份，提交所有的更改，并且执行推送。</li><li>Commit：确认提交，但不推送。</li><li>Stage all：存储当前的变更。</li><li>Unstage all：取消存储变更。</li><li>Push：推送到远端，可以理解为推送到 Github。</li><li>Pull：从远端拉取到本地，可以理解为从 Github 拉取最新数据到本地。</li><li>Change Layout：改变下方文件的排布方式。</li><li>Refresh：刷新当前的文件变更情况。</li></ol><p>如果你不想了解他们具体是干什么的，只想知道怎么做同步，那其实就两个按键有用。</p><ol><li>Backup，第一个按钮，一次性完成提交并推送到 Github。</li><li>Pull，第六个按钮，从 Github 同步到本地。</li></ol><p>到这一步就完成了所有的配置工作，第一次使用时，点击 Backup 就可以。</p><h1 id="一键同步Obsidian和个人博客"><a href="#一键同步Obsidian和个人博客" class="headerlink" title="一键同步Obsidian和个人博客"></a>一键同步Obsidian和个人博客</h1><h2 id="一键复制md文件从obdidian文件夹到博客文件夹"><a href="#一键复制md文件从obdidian文件夹到博客文件夹" class="headerlink" title="一键复制md文件从obdidian文件夹到博客文件夹"></a>一键复制md文件从obdidian文件夹到博客文件夹</h2><ul><li>创建一个.bat批处理文件</li></ul><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> <span class="built_in">cmd</span> /k &quot;d: &amp;&amp; <span class="built_in">cd</span> notes/study &amp;&amp; python copy_md_obsidian2blog.py&quot;</span><br></pre></td></tr></table></figure><ul><li>在obsidian文件夹创建python文件</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"><span class="comment"># 源文件夹路径</span></span><br><span class="line">source_dir = <span class="string">r&#x27;D:\notes\study&#x27;</span></span><br><span class="line"><span class="comment"># 目标文件夹路径</span></span><br><span class="line">target_dir = <span class="string">r&#x27;D:\Hexo\source\_posts&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历源文件夹</span></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(source_dir):</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="comment"># 检查文件扩展名是否为.md</span></span><br><span class="line">        <span class="keyword">if</span> file.endswith(<span class="string">&#x27;.md&#x27;</span>):</span><br><span class="line">            <span class="comment"># 构建源文件的完整路径</span></span><br><span class="line">            source_file = os.path.join(root, file)</span><br><span class="line">            <span class="comment"># 构建目标文件的完整路径</span></span><br><span class="line">            target_file = os.path.join(target_dir, file)</span><br><span class="line">            <span class="comment"># 复制文件</span></span><br><span class="line">            shutil.copy2(source_file, target_file)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;文件 <span class="subst">&#123;file&#125;</span> 已被复制到 <span class="subst">&#123;target_dir&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="一键post文章并备份"><a href="#一键post文章并备份" class="headerlink" title="一键post文章并备份"></a>一键post文章并备份</h2><ul><li>创建一个.bat批处理文件</li></ul><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> <span class="built_in">cmd</span> /k &quot;d: &amp;&amp; <span class="built_in">cd</span> Hexo &amp;&amp; hexo cl &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add  --all &amp;&amp; git commit -m &quot;update posts&quot; &amp;&amp; git push&quot;</span><br></pre></td></tr></table></figure><h2 id="一键上传图片到npm图床"><a href="#一键上传图片到npm图床" class="headerlink" title="一键上传图片到npm图床"></a>一键上传图片到npm图床</h2><ul><li>创建一个.bat批处理文件</li></ul><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> <span class="built_in">cmd</span> /c &quot;d: &amp;&amp; <span class="built_in">cd</span> data/npm/xiansakana-blog-img &amp;&amp; npm version patch &amp;&amp; npm publish&quot;</span><br></pre></td></tr></table></figure><h2 id="一键修改图床链接"><a href="#一键修改图床链接" class="headerlink" title="一键修改图床链接"></a>一键修改图床链接</h2><p>因为我给上传到backblaze的图片加了防盗链，所以在obsidian的本地笔记里面无法显示。因此需要将图片上传到npm或者其他的图床，然后在obsidian笔记中修改之前上传的图片链接，这里以backblaze到jsdelivr为例。</p><ul><li>创建一个.bat批处理文件</li></ul><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> <span class="built_in">cmd</span> /k &quot;d: &amp;&amp; <span class="built_in">cd</span> notes/study &amp;&amp; python replace_md_url_backblaze2jsdelivr.py&quot;</span><br></pre></td></tr></table></figure><ul><li>在obsidian文件夹创建python文件</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">replace_image_links_in_directory</span>(<span class="params">directory, old_link_prefix, new_link_prefix</span>):</span><br><span class="line">    <span class="comment"># 遍历目录下的所有文件和子文件夹</span></span><br><span class="line">    <span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(directory):</span><br><span class="line">        <span class="keyword">for</span> filename <span class="keyword">in</span> files:</span><br><span class="line">            filepath = os.path.join(root, filename)</span><br><span class="line">            <span class="comment"># 仅处理Markdown文件</span></span><br><span class="line">            <span class="keyword">if</span> filepath.endswith(<span class="string">&#x27;.md&#x27;</span>):</span><br><span class="line">                <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">                    content = file.read()</span><br><span class="line">                <span class="comment"># 使用正则表达式替换图片链接</span></span><br><span class="line">                new_content = re.sub(old_link_prefix, new_link_prefix, content)</span><br><span class="line">                <span class="comment"># 将替换后的内容写回文件</span></span><br><span class="line">                <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">                    file.write(new_content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定目录和需要替换的链接前缀</span></span><br><span class="line">directory_path = <span class="string">&#x27;d:/notes/study/&#x27;</span></span><br><span class="line">old_link_prefix = <span class="string">&#x27;img.xiansakana.xyz&#x27;</span></span><br><span class="line">new_link_prefix = <span class="string">&#x27;cdn.jsdelivr.net/npm/xiansakana-blog-img&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行替换操作</span></span><br><span class="line">replace_image_links_in_directory(directory_path, old_link_prefix, new_link_prefix)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -628,9 +628,9 @@
             
             <tag> 后端 </tag>
             
-            <tag> Mongoose </tag>
-            
             <tag> 数据库 </tag>
+            
+            <tag> Mongoose </tag>
             
         </tags>
       
@@ -657,9 +657,9 @@
             
             <tag> 后端 </tag>
             
-            <tag> 数据库 </tag>
-            
             <tag> MongoDB </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1203,55 +1203,11 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>分类</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[<!--<style>  #libCategories .card-wrap:hover .card-info:after {    width: 300%;  }</style><link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/js-heo@1.0.11/3dCard/no3d.css"><div id='libCategories'><div id="lib-cards" class="container"><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/学习/")'><card data-image="https://img.xiansakana.xyz/202309232121154.jpg"><h1 slot="header">学习</h1><p slot="content">学习之路，永无止境。</p></card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/游戏/")'>  <card data-image="https://img.xiansakana.xyz/202309232100891.jpg">    <h1 slot="header">游戏</h1>    <p slot="content">各种游戏记录。</p>  </card></a><a href='javascript:void(0);' onClick='pjax.loadUrl("/categories/生活/")'>  <card data-image="https://img.xiansakana.xyz/202309232116463.jpg">    <h1 slot="header">生活</h1>    <p slot="content">和好朋友👬们一起经历的有趣事。</p>  </card></a></div></div><script src='https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js' data-pjax></script><script type="text/javascript" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.7/no3d/no3d.js" data-pjax></script> -->]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/book.css"/>
-      <url>/css/book.css</url>
-      
-        <content type="html"><![CDATA[div.info {  display: flex;  flex-wrap: wrap;  padding: 1rem;}div.info div.image {  flex: 1 1 200px;  display: flex;  align-items: center;  margin-top: 2rem;}div.info div.image img {  width: 50%;}div.info div.info-card {  flex: 3 1 500px;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>书单</title>
-      <link href="/book/index.html"/>
-      <url>/book/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" href="/css/book.css"><div class="page">    <div class="info">        <div class="image" title="无职转生～到了异世界就拿出真本事～">            <img src="https://img.xiansakana.xyz/202310180110272.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://wuzhizhuansheng.netlify.app" target="_Blank"> 《无职转生～到了异世界就拿出真本事～》 </a></h2>            <h4>作者：理不尽な孫の手</h4>            <h4>出版时间：2014年1月—2022年11月25日（文库版）</h4>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="刀剑神域">            <img src="https://img.xiansakana.xyz/202310180035884.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://daojianshenyu.netlify.app" target="_Blank"> 《刀剑神域》 </a></h2>            <h4>作者：川原砾</h4>            <h4>出版时间：2009年4月10日—出版中（文库版）</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="关于我转生变成史莱姆这档事">            <img src="https://img.xiansakana.xyz/202310180114365.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://zhuanshengchengweishilaimu.netlify.app" target="_Blank"> 《关于我转生变成史莱姆这档事》 </a></h2>            <h4>作者：伏濑</h4>            <h4>出版时间：2014年5月30日—出版中</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="我的青春恋爱物语果然有问题">            <img src="https://img.xiansakana.xyz/202310180122234.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://chunwu.netlify.app" target="_Blank"> 《我的青春恋爱物语果然有问题》 </a></h2>            <h4>作者：渡航</h4>            <h4>出版时间：2011年3月18日—2021年4月20日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="欢迎来到实力至上主义的教室">            <img src="https://img.xiansakana.xyz/202310180129161.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://shijiao.netlify.app" target="_Blank"> 《欢迎来到实力至上主义的教室》 </a></h2>            <h4>作者：衣笠彰梧</h4>            <h4>出版时间：2015年5月25日—2019年9月25日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/home.css"/>
-      <url>/css/home.css</url>
-      
-        <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
       
     </entry>
     
@@ -1270,10 +1226,21 @@
     
     <entry>
       <title></title>
-      <link href="/css/welcome.css"/>
-      <url>/css/welcome.css</url>
+      <link href="/css/imgloaded.css"/>
+      <url>/css/imgloaded.css</url>
       
-        <content type="html"><![CDATA[#welcome-info {    overflow: hidden;    border-radius: 14px;    --kouseki-welcome-color: #49B1F5;    --kouseki-ip-color: #49B1F5;    --kouseki-gl-size: 16px!important;  }]]></content>
+        <content type="html"><![CDATA[/* 首页头图加载 */.pl-container {    width: 100%;    height: 100%;    position: relative;    overflow: hidden;    will-change: transform;    /* 添加性能优化 */    animation: blur-to-clear 2s cubic-bezier(.62, .21, .25, 1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62, .21, .25, 1) 0s 1 both;  }    .pl-img {    width: 100%;    height: 100%;    position: absolute;    background-position: center;    background-size: cover;    background-repeat: no-repeat;    opacity: 0;    transition: opacity 1s;  }    @keyframes blur-to-clear {    0% {      filter: blur(50px);      opacity: 1;    }      100% {      filter: blur(0);      opacity: 1;    }  }    @keyframes scale {    0% {      transform: scale(1.5) translateZ(0);      opacity: 0;    }      to {      transform: scale(1) translateZ(0);      opacity: 1;    }  }    .pl-visible {    opacity: 1;  }    .pl-blur {    /* 小图锯齿多，增加高斯模糊 */    filter: blur(50px);  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/home.css"/>
+      <url>/css/home.css</url>
+      
+        <content type="html"><![CDATA[#recent-posts > .recent-post-item:not(a)::before {    content: "";    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 200%;    background: linear-gradient(to right, transparent, white, transparent);    transform: translateX(-200%);    transition: transform 0.5s linear;    z-index: 1;  }  #recent-posts > .recent-post-item:not(a):hover::before {    transform: translateX(100%) skewX(-60deg);  }]]></content>
       
     </entry>
     
@@ -1291,11 +1258,33 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/imgloaded.css"/>
-      <url>/css/imgloaded.css</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[/* 首页头图加载 */.pl-container {    width: 100%;    height: 100%;    position: relative;    overflow: hidden;    will-change: transform;    /* 添加性能优化 */    animation: blur-to-clear 2s cubic-bezier(.62, .21, .25, 1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62, .21, .25, 1) 0s 1 both;  }    .pl-img {    width: 100%;    height: 100%;    position: absolute;    background-position: center;    background-size: cover;    background-repeat: no-repeat;    opacity: 0;    transition: opacity 1s;  }    @keyframes blur-to-clear {    0% {      filter: blur(50px);      opacity: 1;    }      100% {      filter: blur(0);      opacity: 1;    }  }    @keyframes scale {    0% {      transform: scale(1.5) translateZ(0);      opacity: 0;    }      to {      transform: scale(1) translateZ(0);      opacity: 1;    }  }    .pl-visible {    opacity: 1;  }    .pl-blur {    /* 小图锯齿多，增加高斯模糊 */    filter: blur(50px);  }]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/welcome.css"/>
+      <url>/css/welcome.css</url>
+      
+        <content type="html"><![CDATA[#welcome-info {    overflow: hidden;    border-radius: 14px;    --kouseki-welcome-color: #49B1F5;    --kouseki-ip-color: #49B1F5;    --kouseki-gl-size: 16px!important;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/book.css"/>
+      <url>/css/book.css</url>
+      
+        <content type="html"><![CDATA[div.info {  display: flex;  flex-wrap: wrap;  padding: 1rem;}div.info div.image {  flex: 1 1 200px;  display: flex;  align-items: center;  margin-top: 2rem;}div.info div.image img {  width: 50%;}div.info div.info-card {  flex: 3 1 500px;}]]></content>
       
     </entry>
     
@@ -1318,6 +1307,39 @@
       <url>/essay/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>书单</title>
+      <link href="/book/index.html"/>
+      <url>/book/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="/css/book.css"><div class="page">    <div class="info">        <div class="image" title="无职转生～到了异世界就拿出真本事～">            <img src="https://img.xiansakana.xyz/202310180110272.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://wuzhizhuansheng.netlify.app" target="_Blank"> 《无职转生～到了异世界就拿出真本事～》 </a></h2>            <h4>作者：理不尽な孫の手</h4>            <h4>出版时间：2014年1月—2022年11月25日（文库版）</h4>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="刀剑神域">            <img src="https://img.xiansakana.xyz/202310180035884.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://daojianshenyu.netlify.app" target="_Blank"> 《刀剑神域》 </a></h2>            <h4>作者：川原砾</h4>            <h4>出版时间：2009年4月10日—出版中（文库版）</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="关于我转生变成史莱姆这档事">            <img src="https://img.xiansakana.xyz/202310180114365.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://zhuanshengchengweishilaimu.netlify.app" target="_Blank"> 《关于我转生变成史莱姆这档事》 </a></h2>            <h4>作者：伏濑</h4>            <h4>出版时间：2014年5月30日—出版中</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="我的青春恋爱物语果然有问题">            <img src="https://img.xiansakana.xyz/202310180122234.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://chunwu.netlify.app" target="_Blank"> 《我的青春恋爱物语果然有问题》 </a></h2>            <h4>作者：渡航</h4>            <h4>出版时间：2011年3月18日—2021年4月20日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div><div class="page">    <div class="info">        <div class="image" title="欢迎来到实力至上主义的教室">            <img src="https://img.xiansakana.xyz/202310180129161.jpg">        </div>        <div class="info-card">                                        <h2> <a href="https://shijiao.netlify.app" target="_Blank"> 《欢迎来到实力至上主义的教室》 </a></h2>            <h4>作者：衣笠彰梧</h4>            <h4>出版时间：2015年5月25日—2019年9月25日</h4>            <p></p>            <h4>                <span>推荐指数：</span>                <span>                <!-- 推荐指数，多少个星星就有以下多少个i标签 -->                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>                 </span>            </h4>                                    </div>    </div> </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>游戏</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202310240353245.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">贪食蛇</div>  <p>经典贪食蛇小游戏</p>  <a href='./pages/greedySnake/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202311061511446.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">打砖块</div>  <p>打砖块小游戏</p>  <a href='./pages/breakoutClone/index.html' target="_blank"></a>  </figcaption>  </figure></div>]]></content>
       
     </entry>
     
@@ -1357,33 +1379,11 @@
     
     
     <entry>
-      <title>游戏</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202310240353245.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">贪食蛇</div>  <p>经典贪食蛇小游戏</p>  <a href='./pages/greedySnake/index.html' target="_blank"></a>  </figcaption>  </figure>  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://img.xiansakana.xyz/202311061511446.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">打砖块</div>  <p>打砖块小游戏</p>  <a href='./pages/breakoutClone/index.html' target="_blank"></a>  </figcaption>  </figure></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/js/weibo.js"/>
       <url>/js/weibo.js</url>
       
         <content type="html"><![CDATA[try {  if (document.getElementById("weibo").clientWidth) weibo();} catch (error) {}function weibo() {  let hotness = {    爆: "weibo-boom",    热: "weibo-hot",    沸: "weibo-boil",    新: "weibo-new",    荐: "weibo-recommend",    音: "weibo-jyzy",    影: "weibo-jyzy",    剧: "weibo-jyzy",    综: "weibo-jyzy",  };  let html = '<div id="weibo-container">';  let data = JSON.parse(localStorage.getItem("weibo"));  let nowTime = Date.now();  let ls;  if (data == null || nowTime - data.time > 600000) {    // 600000为缓存时间，即10分钟，防止频繁请求，加快本地访问速度。    getData();    return;  } else {    ls = JSON.parse(data.ls);  }  for (let item of ls) {    html +=      '<div class="weibo-list-item"><div class="weibo-hotness ' +      hotness[item.hot || "荐"] +      '">' +      (item.hot || "荐") +      "</div>" +      '<span class="weibo-title"><a title="' +      item.title +      '"href="' +      item.url +      '" target="_blank" rel="external nofollow noreferrer">' +      item.title +      "</a></span>" +      '<div class="weibo-num"><span>' +      item.num +      "</span></div></div>";  }  html += "</div>";  document.getElementById("weiboContent").innerHTML = html;}function getData() {  fetch("https://wb.bore.vip/api")    .then((data) => data.json())    .then((data) => {      data = { time: Date.now(), ls: JSON.stringify(data) };      localStorage.setItem("weibo", JSON.stringify(data));    })    .then(weibo);}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -1434,9 +1434,9 @@
     
     
     <entry>
-      <title>好康的壁纸</title>
-      <link href="/wallpaper/index.html"/>
-      <url>/wallpaper/index.html</url>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -1445,9 +1445,9 @@
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>好康的壁纸</title>
+      <link href="/wallpaper/index.html"/>
+      <url>/wallpaper/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
