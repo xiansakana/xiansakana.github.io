@@ -1,0 +1,142 @@
+{
+  "中系": [
+    {
+      "file": "中系-蓝喵.json",
+      "artist": "蓝喵",
+      "count": 66
+    },
+    {
+      "file": "中系-排骨__uid486183.json",
+      "artist": "排骨\\_uid486183",
+      "count": 29
+    },
+    {
+      "file": "中系-其他或未知.json",
+      "artist": "其他或未知",
+      "count": 28
+    },
+    {
+      "file": "中系-李渤瀚__uid591858938.json",
+      "artist": "李渤瀚\\_uid591858938",
+      "count": 26
+    },
+    {
+      "file": "中系-404.json",
+      "artist": "404",
+      "count": 21
+    },
+    {
+      "file": "中系-爱吃的玉君__uid350509670.json",
+      "artist": "爱吃的玉君\\_uid350509670",
+      "count": 21
+    },
+    {
+      "file": "中系-浩渺天心__uid21774092.json",
+      "artist": "浩渺天心\\_uid21774092",
+      "count": 18
+    },
+    {
+      "file": "中系-吃汤圆呗__uid162198524.json",
+      "artist": "吃汤圆呗\\_uid162198524",
+      "count": 15
+    },
+    {
+      "file": "中系-小梦瑶.json",
+      "artist": "小梦瑶",
+      "count": 13
+    },
+    {
+      "file": "中系-佟久 yoki_uid402670528.json",
+      "artist": "佟久 yoki_uid402670528",
+      "count": 6
+    },
+    {
+      "file": "中系-清轩儿__uid24633736.json",
+      "artist": "清轩儿\\_uid24633736",
+      "count": 6
+    },
+    {
+      "file": "中系-一七酱__uid339987400.json",
+      "artist": "一七酱\\_uid339987400",
+      "count": 4
+    },
+    {
+      "file": "中系-森森__uid477879696.json",
+      "artist": "森森\\_uid477879696",
+      "count": 3
+    },
+    {
+      "file": "中系-萌珑.json",
+      "artist": "萌珑",
+      "count": 2
+    }
+  ],
+  "日系": [
+    {
+      "file": "日系-鸠羽 lin_uid1903502807.json",
+      "artist": "鸠羽 lin_uid1903502807",
+      "count": 16
+    },
+    {
+      "file": "日系-hal.json",
+      "artist": "hal",
+      "count": 12
+    },
+    {
+      "file": "日系-染香.json",
+      "artist": "染香",
+      "count": 7
+    },
+    {
+      "file": "日系-雨宫修莉亚__uid204838732.json",
+      "artist": "雨宫修莉亚\\_uid204838732",
+      "count": 7
+    },
+    {
+      "file": "日系-mafumafu_uid387994725.json",
+      "artist": "mafumafu_uid387994725",
+      "count": 6
+    },
+    {
+      "file": "日系-其他或未知.json",
+      "artist": "其他或未知",
+      "count": 6
+    },
+    {
+      "file": "日系-窓付き＠.json",
+      "artist": "窓付き＠",
+      "count": 5
+    }
+  ],
+  "美系": [
+    {
+      "file": "美系-marcelito_pomoy.json",
+      "artist": "marcelito_pomoy",
+      "count": 5
+    },
+    {
+      "file": "美系-其他或未知.json",
+      "artist": "其他或未知",
+      "count": 2
+    }
+  ],
+  "语音": [
+    {
+      "file": "语音-来自贴吧.json",
+      "artist": "来自贴吧",
+      "count": 3
+    }
+  ],
+  "资料": [
+    {
+      "file": "资料-林俊卿.json",
+      "artist": "林俊卿",
+      "count": 2
+    },
+    {
+      "file": "资料-未知.json",
+      "artist": "其他或未知",
+      "count": 1
+    }
+  ]
+}

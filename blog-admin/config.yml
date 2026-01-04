@@ -1,0 +1,258 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://blog.saoyu.fun
+display_url: https://blog.saoyu.fun
+media_folder: "source/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "全部文章"
+    folder: "source/_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{uuid_short}}"
+    identifier_field: "title"
+    sortable_fields: ["title", "date", "categories"]
+    view_groups:
+      - label: "按分类"
+        field: categories
+      - label: "按标签"
+        field: tags
+      - label: "按年份"
+        field: date
+        pattern: \\d{4}
+    summary: "{{title}} | {{categories}} | {{date}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false }
+      - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false, default: "{{now}}" }
+      - { label: "描述", name: "description", widget: "string", required: false }
+      - label: "分类"
+        name: "categories"
+        widget: "combobox"
+        required: false
+        options: ["日记", "笔记", "计算机", "命理", "MBTI", "工具", "常识"]
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "标签", name: "tag", widget: "combobox", options: ["美国", "八字", "Git", "Hexo", "Obsidian", "吐槽", "实习", "秋招", "ICC", "INFJ", "Linux", "Markdown", "Redis", "SpaceSniffer", "图床", "操作系统", "旅游", "校招", "注册表", "游戏", "盲派", "米哈游", "绝区零", "股票", "计算机", "运维"] }
+      - { label: "内容", name: "body", widget: "markdown" }
+
+  - name: "by-category"
+    label: "按分类"
+    folder: "source/_posts"
+    create: false
+    slug: "{{slug}}"
+    view_filters:
+      - label: "日记"
+        field: categories
+        pattern: "日记"
+      - label: "笔记"
+        field: categories
+        pattern: "笔记"
+      - label: "计算机"
+        field: categories
+        pattern: "计算机"
+      - label: "命理"
+        field: categories
+        pattern: "命理"
+      - label: "MBTI"
+        field: categories
+        pattern: "MBTI"
+      - label: "工具"
+        field: categories
+        pattern: "工具"
+      - label: "常识"
+        field: categories
+        pattern: "常识"
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false }
+      - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false, default: "{{now}}" }
+      - { label: "描述", name: "description", widget: "string", required: false }
+      - label: "分类"
+        name: "categories"
+        widget: "combobox"
+        required: false
+        options: ["日记", "笔记", "计算机", "命理", "MBTI", "工具", "常识"]
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "标签", name: "tag", widget: "combobox", options: ["美国", "八字", "Git", "Hexo", "Obsidian", "吐槽", "实习", "秋招", "ICC", "INFJ", "Linux", "Markdown", "Redis", "SpaceSniffer", "图床", "操作系统", "旅游", "校招", "注册表", "游戏", "盲派", "米哈游", "绝区零", "股票", "计算机", "运维"] }
+      - { label: "内容", name: "body", widget: "markdown" }
+
+  - name: "by-tag"
+    label: "按标签"
+    folder: "source/_posts"
+    create: false
+    slug: "{{slug}}"
+    view_filters:
+      - label: "美国"
+        field: tags
+        pattern: "美国"
+      - label: "八字"
+        field: tags
+        pattern: "八字"
+      - label: "Git"
+        field: tags
+        pattern: "Git"
+      - label: "Hexo"
+        field: tags
+        pattern: "Hexo"
+      - label: "Obsidian"
+        field: tags
+        pattern: "Obsidian"
+      - label: "吐槽"
+        field: tags
+        pattern: "吐槽"
+      - label: "实习"
+        field: tags
+        pattern: "实习"
+      - label: "秋招"
+        field: tags
+        pattern: "秋招"
+      - label: "ICC"
+        field: tags
+        pattern: "ICC"
+      - label: "INFJ"
+        field: tags
+        pattern: "INFJ"
+      - label: "Linux"
+        field: tags
+        pattern: "Linux"
+      - label: "Markdown"
+        field: tags
+        pattern: "Markdown"
+      - label: "Redis"
+        field: tags
+        pattern: "Redis"
+      - label: "SpaceSniffer"
+        field: tags
+        pattern: "SpaceSniffer"
+      - label: "图床"
+        field: tags
+        pattern: "图床"
+      - label: "操作系统"
+        field: tags
+        pattern: "操作系统"
+      - label: "旅游"
+        field: tags
+        pattern: "旅游"
+      - label: "校招"
+        field: tags
+        pattern: "校招"
+      - label: "注册表"
+        field: tags
+        pattern: "注册表"
+      - label: "游戏"
+        field: tags
+        pattern: "游戏"
+      - label: "盲派"
+        field: tags
+        pattern: "盲派"
+      - label: "米哈游"
+        field: tags
+        pattern: "米哈游"
+      - label: "绝区零"
+        field: tags
+        pattern: "绝区零"
+      - label: "股票"
+        field: tags
+        pattern: "股票"
+      - label: "计算机"
+        field: tags
+        pattern: "计算机"
+      - label: "运维"
+        field: tags
+        pattern: "运维"
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false }
+      - { label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", picker_utc: false, default: "{{now}}" }
+      - { label: "描述", name: "description", widget: "string", required: false }
+      - label: "分类"
+        name: "categories"
+        widget: "combobox"
+        required: false
+        options: ["日记", "笔记", "计算机", "命理", "MBTI", "工具", "常识"]
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "标签", name: "tag", widget: "combobox", options: ["美国", "八字", "Git", "Hexo", "Obsidian", "吐槽", "实习", "秋招", "ICC", "INFJ", "Linux", "Markdown", "Redis", "SpaceSniffer", "图床", "操作系统", "旅游", "校招", "注册表", "游戏", "盲派", "米哈游", "绝区零", "股票", "计算机", "运维"] }
+      - { label: "内容", name: "body", widget: "markdown" }
+
+  - name: "weisheng"
+    label: "伪声收藏"
+    folder: "source/data/weisheng"
+    create: true
+    slug: "{{category}}-{{artist}}"
+    identifier_field: "artist"
+    extension: "json"
+    format: "json"
+    view_filters:
+      - label: "中系"
+        field: category
+        pattern: "中系"
+      - label: "日系"
+        field: category
+        pattern: "日系"
+      - label: "美系"
+        field: category
+        pattern: "美系"
+      - label: "语音"
+        field: category
+        pattern: "语音"
+      - label: "资料"
+        field: category
+        pattern: "资料"
+    summary: "[{{category}}] {{artist}}"
+    fields:
+      - label: "分类"
+        name: "category"
+        widget: "combobox"
+        options: ["中系", "日系", "美系", "语音", "资料"]
+      - label: "艺术家"
+        name: "artist"
+        widget: "combobox"
+        options: ["蓝喵", "其他或未知", "排骨\_uid486183", "李渤瀚\_uid591858938", "404", "爱吃的玉君\_uid350509670", "浩渺天心\_uid21774092", "鸠羽 lin_uid1903502807", "吃汤圆呗\_uid162198524", "小梦瑶", "hal", "染香", "雨宫修莉亚\_uid204838732", "佟久 yoki_uid402670528", "清轩儿\_uid24633736", "mafumafu_uid387994725", "窓付き＠", "marcelito_pomoy", "一七酱\_uid339987400", "森森\_uid477879696", "来自贴吧", "萌珑", "林俊卿"]
+      - name: "items"
+        label: "作品列表"
+        widget: "list"
+        add_to_top: true
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - label: "类型"
+            name: "type"
+            widget: "select"
+            options: ["audio", "video", "pdf"]
+          - { label: "链接", name: "url", widget: "string" }
+
+  - name: "settings"
+    label: "站点设置"
+    files:
+      - name: "site"
+        label: "基本信息"
+        file: "source/_data/site-settings.yml"
+        fields:
+          - { label: "站点标题", name: "title", widget: "string" }
+          - { label: "副标题", name: "subtitle", widget: "string" }
+          - { label: "描述", name: "description", widget: "string" }
+          - { label: "作者", name: "author", widget: "string" }
+          - { label: "邮箱", name: "email", widget: "string", required: false }
+          - { label: "头像", name: "avatar", widget: "image", required: false }
+          - { label: "建站年份", name: "footer_since", widget: "number", value_type: "int" }
+          - label: "社交链接"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "GitHub", name: "github", widget: "string", required: false }
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+              - { label: "微博", name: "weibo", widget: "string", required: false }

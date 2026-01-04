@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>博客后台管理</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // 角色检查：main 分支只允许 admin 角色访问
+    const REQUIRED_ROLE = 'admin'; // main 分支需要 admin 角色
+    
+    window.netlifyIdentity.on('init', user => {
+      if (user) {
+        const roles = user.app_metadata?.roles || [];
+        if (!roles.includes(REQUIRED_ROLE)) {
+          document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;"><h2>无权访问此后台</h2></div>';
+          setTimeout(() => {
+            window.netlifyIdentity.logout();
+          }, 2000);
+        }
+      }
+    });
+  </script>
+  <style>
+    .combobox-widget input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .combobox-widget datalist {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // 自定义 combobox widget - 支持下拉选择和自由输入
+    const ComboboxControl = createClass({
+      handleChange: function(e) {
+        this.props.onChange(e.target.value);
+      },
+      render: function() {
+        const { field, value, forID } = this.props;
+        const options = field.get('options') || [];
+        const listId = forID + '-list';
+        
+        return h('div', { className: 'combobox-widget' },
+          h('input', {
+            type: 'text',
+            id: forID,
+            list: listId,
+            value: value || '',
+            onChange: this.handleChange,
+            placeholder: field.get('placeholder') || '选择或输入...'
+          }),
+          h('datalist', { id: listId },
+            options.map(function(opt) {
+              const optValue = typeof opt === 'string' ? opt : opt.get('value');
+              return h('option', { key: optValue, value: optValue });
+            })
+          )
+        );
+      }
+    });
+
+    const ComboboxPreview = createClass({
+      render: function() {
+        return h('span', {}, this.props.value || '');
+      }
+    });
+
+    CMS.registerWidget('combobox', ComboboxControl, ComboboxPreview);
+  </script>
+</body>
+</html>
